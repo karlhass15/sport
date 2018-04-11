@@ -11,4 +11,8 @@ redis:
 
 elasticsearch:
     type: elasticsearch:1.7
-    disk: 1024
+    disk: 512
+
+rabbitmq:
+    type: rabbitmq
+    disk: 512

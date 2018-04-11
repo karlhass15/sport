@@ -1,0 +1,17 @@
+#!/bin/bash
+./bin/docker/cli chmod u+x bin/magento
+
+if [ ! -f app/etc/env.php ]; then
+    echo "Applying default Docker env.php"
+    cp app/etc/env.docker.php app/etc/env.php
+fi
+
+echo "Composer install."
+./bin/docker/composer install
+
+./bin/docker/fixperms
+
+echo "Turning on developer mode."
+./bin/docker/magento deploy:mode:set developer
+
+./bin/docker/magento indexer:reindex

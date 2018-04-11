@@ -1,0 +1,75 @@
+# Instructions
+#
+# Required: Docker, Git
+# Not Required: PHP, web server, composer, MySQL (can use container version)
+#
+# 1. docker-compose up -d
+# 2. bin/docker/db_import [dump file]
+# 3. bin/docker/setup (takes a LONG time)
+# 4. sudo bin/docker/hosts
+# 5. bin/docker/magento set:up (if you resieve an error, also run bin/docker/magento app:config:import)
+#
+# Optional Mac optimization: http://markshust.com/2018/01/30/performance-tuning-docker-mac
+
+version: "3"
+
+services:
+
+  app:
+    image: markoshust/magento-nginx:1.13
+    ports:
+      - 80:8000
+    links:
+      - db
+      - phpfpm
+      - redis
+      - elasticsearch
+    volumes: &appvolumes
+      - .:/var/www/html:delegated
+      - ~/.composer:/var/www/.composer:delegated
+      - sockdata:/sock
+
+  phpfpm:
+    image: markoshust/magento-php:7.1-fpm
+    links:
+      - db
+    volumes: *appvolumes
+
+  cron:
+    image: markoshust/magento-php:7.1-fpm
+    user: root
+    command: /usr/local/bin/cronstart
+    tty: true
+    links:
+      - db
+    volumes: *appvolumes
+
+  db:
+    image: percona:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sport_dog_food
+      - MYSQL_USER=sport_dog_food
+      - MYSQL_PASSWORD=sport_dog_food
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  redis:
+    image: redis:3.0
+
+  elasticsearch:
+    image: elasticsearch:2
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+volumes:
+  dbdata:
+  sockdata:
+  esdata:
+
+
+# Mark Shust's Docker Configuration for Magento (https://github.com/markoshust/docker-magento)
+# Version 12.0.0
+

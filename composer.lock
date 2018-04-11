@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad314df33dc7d1d8fba2699e33bf3810",
+    "content-hash": "d2decb24cc5b1a4d2fd1c76f869093a5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -679,6 +679,79 @@
                 "search"
             ],
             "time": "2017-11-08T17:04:47+00:00"
+        },
+        {
+            "name": "fastly/magento2",
+            "version": "1.2.49",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fastly/fastly-magento2.git",
+                "reference": "4b928f90954b08764151ce4b794b8539bd470e52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fastly/fastly-magento2/zipball/4b928f90954b08764151ce4b794b8539bd470e52",
+                "reference": "4b928f90954b08764151ce4b794b8539bd470e52",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": ">=100.0.0",
+                "magento/module-cache-invalidate": ">=100.0.0",
+                "magento/module-config": ">=100.0.0",
+                "magento/module-page-cache": ">=100.0.0",
+                "magento/module-store": ">=100.0.0",
+                "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Fastly\\Cdn\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Fastly CDN Module for Magento 2.x",
+            "time": "2018-04-05T16:54:08+00:00"
+        },
+        {
+            "name": "gene/bluefoot",
+            "version": "1.0.31",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/gene/bluefoot/gene-bluefoot-1.0.31.0.zip",
+                "reference": null,
+                "shasum": "8cd8c9de63c8b567e0378ffb2820d21982539804"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Gene\\BlueFoot\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Macaulay",
+                    "homepage": "http://gene.co.uk/",
+                    "role": "Senior Developer"
+                },
+                {
+                    "name": "Hob Adams",
+                    "homepage": "http://gene.co.uk/",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "BlueFoot CMS & PageBuilder for Magento 2"
         },
         {
             "name": "graylog2/gelf-php",

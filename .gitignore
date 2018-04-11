@@ -22,3 +22,11 @@
 !/update
 !/update/.htaccess
 !/README.md
+
+!/docker-compose.yml
+!/bin
+!/bin/*/
+!/bin/docker/**
+!/app/etc/env.docker.php
+
+!/letsdump.sh

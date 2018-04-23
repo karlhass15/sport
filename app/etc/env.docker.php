@@ -36,7 +36,7 @@ return array (
         ),
     'crypt' =>
         array (
-            'key' => '750b0217399fe6a018a3ac624fd670f8',
+            'key' => '0ef1ce939b4b4aaa563996a6bbcf9cc1',
         ),
     'resource' =>
         array (

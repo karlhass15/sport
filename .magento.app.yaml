@@ -60,6 +60,10 @@ web:
             rules:
                 ^/static/version\d+/(?<resource>.*)$:
                     passthru: "/static/$resource"
+        "/bridge2cart":
+            root: "pub/media/bridge2cart"
+            allow: true
+            scripts: true
 
 
 # The size of the persistent disk of the application (in MB).

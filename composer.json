@@ -13,7 +13,7 @@
             "url": "https://repo.magento.com"
         },
         "wagento-module-subscription": {
-            "type": "git",
+            "type": "composer",
             "url": "https://justinwagento@bitbucket.org/wagento-global/subscription.git"
         }
     },

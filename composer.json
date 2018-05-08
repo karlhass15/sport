@@ -14,7 +14,7 @@
         },
         "wagento-module-subscription": {
             "type": "git",
-            "url": "https://justinwagento@bitbucket.org/wagento-global/subscription.git"
+            "url": "http://justinwagento@bitbucket.org/wagento-global/subscription.git"
         }
     },
     "require": {

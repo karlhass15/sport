@@ -13,16 +13,15 @@
             "url": "https://repo.magento.com"
         },
         "wagento-module-subscription": {
-            "type": "git",
-            "url": "http://justinwagento@bitbucket.org/wagento-global/subscription.git"
+            "type": "vcs",
+            "url": "git@bitbucket.org:wagento-global/subscription.git"
         }
     },
     "require": {
         "magento/magento-cloud-metapackage": "2.2.4",
         "fastly/magento2": "^1.2",
         "gene/bluefoot": "^1.0",
-        "magento/product-enterprise-edition": "2.2.4",
-        "wagento/module-subscription": "dev-master"
+        "magento/product-enterprise-edition": "2.2.4"
     },
     "config": {
         "use-include-path": true

@@ -2,6 +2,7 @@
 #
 # Required: Docker, Git
 # Not Required: PHP, web server, composer, MySQL (can use container version)
+# Optional Mac optimization: http://markshust.com/2018/01/30/performance-tuning-docker-mac
 #
 # 1. docker-compose up -d
 # 2. bin/docker/db_import [dump file]
@@ -9,7 +10,16 @@
 # 4. sudo bin/docker/hosts
 # 5. bin/docker/magento set:up (if you resieve an error, also run bin/docker/magento app:config:import)
 #
-# Optional Mac optimization: http://markshust.com/2018/01/30/performance-tuning-docker-mac
+# Helper Scripts:
+# bin/docker/magento - Magento CLI run from container
+# bin/docker/composer - Composer run from container
+# bin/docker/mysql - MySQL client run from container
+# bin/docker/db_import - import a dump file into the DB container
+# bin/docker/setup - runs a first time setup script
+# bin/docker/fixperms - makes all files in project accessable to the container
+# bin/docker/hosts - edits hosts file, must be run with sudo
+# bin/docker/bash, bin/docker/cli - general purpose commands run in the app container
+#
 
 version: "3"
 

@@ -2,7 +2,7 @@
 [ -z "$1" ] && echo "Please specify a dump file, .sql or .sql.gz" && exit
 
 if [[ "$1" == *.sql ]]; then
-    cat $1 | sed 's/CREATE\*\/.*TRIGGER/CREATE TRIGGER/g' | docker-compose exec -T db mysql -u sport_dog_food -psport_dog_food sport_dog_food
+    cat $1 | sed 's/CREATE\*\/.*TRIGGER/CREATE TRIGGER/g' | docker exec -i $(docker-compose ps -q db) sh -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE'
 elif [[ "$1" == *.sql.gz ]]; then
-    gunzip -c $1 | sed 's/CREATE\*\/.*TRIGGER/CREATE TRIGGER/g' | docker-compose exec -T db mysql -u sport_dog_food -psport_dog_food sport_dog_food
+    gunzip -c $1 | sed 's/CREATE\*\/.*TRIGGER/CREATE TRIGGER/g' | docker exec -i $(docker-compose ps -q db) sh -c 'mysql -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE'
 fi

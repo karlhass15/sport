@@ -13,8 +13,8 @@
             "url": "https://repo.magento.com"
         },
         "wagento-module-subscription": {
-            "type": "vcs",
-            "url": "git@bitbucket.org:wagento-global/subscription.git"
+            "type": "git",
+            "url": "https://justinwagento@bitbucket.org/wagento-global/subscription.git"
         }
     },
     "require": {

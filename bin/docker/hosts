@@ -2,5 +2,5 @@
 
 if ! grep -q "sportdogfood.test" /etc/hosts; then
     echo "Adding route to hosts file."
-    printf '127.0.0.1\sportdogfood.test\n' >> /etc/hosts
+    printf '127.0.0.1\tsportdogfood.test\n' >> /etc/hosts
 fi

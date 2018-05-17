@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <container name="rivit-works-banner-hp" htmlClass="rivitBanner" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="rivit_works_banner_hp">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">rivit_works_banner_hp</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="rivit-works-banner-hp" destination="header.container" before="-"/>
+
+        <container name="top-blocks-hp" htmlClass="topBlocksHp" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="top_blocks_hp">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top_blocks_hp</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="top-blocks-hp" destination="main" after="rivit-works-banner-hp"/>
+
+        <container name="top-blocks-hp-2" htmlClass="topBlocksHp2" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="top_blocks_hp_2">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top_blocks_hp_2</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="top-blocks-hp-2" destination="main" after="top-blocks-hp"/>
+
+        <container name="middle-banner-block-hp" htmlClass="mdBannerBlockHp" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="middle_banner_block_hp">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">middle_banner_block_hp</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="middle-banner-block-hp" destination="main" after="top-blocks-hp-2"/>
+
+        <container name="bottom-blocks-hp" htmlClass="bottomBlocksHp" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="bottom_blocks_hp">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">bottom_blocks_hp</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="bottom-blocks-hp" destination="main" after="middle-banner-block-hp"/>
+
+
+        <container name="preFooter" htmlClass="preFooter" htmlTag="div">
+            <block class="Magento\Cms\Block\Block" name="pre_footer">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">pre_footer</argument>
+                </arguments>
+            </block>
+        </container>
+        <move element="preFooter" destination="page.bottom.container" before="-"/>
+    </body>
+</page>

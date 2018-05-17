@@ -14,4 +14,6 @@ $label = $block->getLabel();
 ?>
 <a class="action skip <?= /* @escapeNotVerified */ $target ?>" href="#<?= /* @escapeNotVerified */ $target ?>"><span><?= /* @escapeNotVerified */ $label ?></span></a>
 
+<!--Promo Block added to top of HomePage-->
 <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('HP_top_promo')->toHtml(); ?>
+

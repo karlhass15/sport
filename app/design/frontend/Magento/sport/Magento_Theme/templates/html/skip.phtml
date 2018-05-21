@@ -1,0 +1,19 @@
+
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: karlhass
+ * Date: 5/11/18
+ * Time: 5:15 PM
+ */
+
+// @codingStandardsIgnoreFile
+$target = $block->getTarget();
+$label = $block->getLabel();
+?>
+<a class="action skip <?= /* @escapeNotVerified */ $target ?>" href="#<?= /* @escapeNotVerified */ $target ?>"><span><?= /* @escapeNotVerified */ $label ?></span></a>
+
+<!--Promo Block added to top of HomePage-->
+<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('HP_top_promo')->toHtml(); ?>
+

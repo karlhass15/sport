@@ -1,0 +1,714 @@
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+@import 'source/lib/_lib.less'; // Global lib
+@import 'source/_sources.less'; // Theme styles
+@import 'source/_components.less'; // Components styles (modal/sliding panel)
+
+#TOG .rvt-pull-right {display: none;}
+#TOG .rvt-theme-light .rvt-t-btn-default{
+  color: @company_color_Black !important;
+  border-color: @company_color_Black !important;
+  width: 200px;
+  margin: 47px auto;
+}
+
+a.action.advanced, .header.panel .header.links li:first-child, .header.panel .header.links li:nth-child(2), .header.panel .header.links li:last-child {
+  display: none;
+}
+body .page-header .header.panel {
+  max-width: 100%;
+  background: #f7f7f7;
+}
+body .panel.header .links .authorization-link a{
+  //position: absolute;
+  //top: 10.4%;
+  //right: 12%;
+  //z-index: 3;
+  //text-decoration: none!important;
+}
+
+body .minicart-wrapper .action.showcart:before {
+  color: @company_color_Black;
+}
+
+.preFooter {
+  padding: 30px 20px;
+}
+
+
+  body .footerContent {
+    font-weight: 500;
+    h5, .block .title strong {
+      font-size: 20px;
+      color: @company_color_White;
+    }
+    ul {
+      padding-bottom: 15px;
+      font-size: 20px;
+
+      li {
+        list-style: none;
+        color: @company_color_Alabaster;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+    }
+  }
+
+footer .footer.content ul > li {
+  margin-bottom: 15px;
+}
+body .block.newsletter .title {
+  display: block;
+  color: @company_color_White;
+  strong {
+    font-size: 20px;
+  }
+}
+body .footerLogo {
+  clear:both;
+}
+
+body .footer .copyright {
+  margin: 0 0 0 20%;
+}
+
+body .page-wrapper > .page-bottom {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  background: @company_color_Boulder;
+}
+
+
+a.block-promo {
+  &.middleBlock {
+    width:100%;
+  }
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 50%;
+  color: #333 !important;
+  .content {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    padding: 25px 35px 35px;
+
+    .info {
+      display: block;
+      font-weight: 300;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .title {
+      display: block;
+      font-weight: 300;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+    .button.more {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-sizing: border-box;
+      vertical-align: middle;
+      padding: 7px 15px;
+    }
+  }
+}
+.home-top-left, .home-top-right, .home-bottom-left, .home-bottom-right, .middleBlock {
+  height: 100%;
+  .content {
+    color: @company_color_White;
+    font-weight: 900;
+    top: 40px;
+    width: 100%;
+    height: 85%;
+    text-align: center;
+    .info{
+      font-weight: 500;
+    }
+
+    .action.more.icon {
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      right: 0;
+      left: 0;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.block-promo-wrapper .block-promo {
+  float: left;
+  text-align: center;
+}
+
+//Font Family Variables
+@font-family-name__base: 'Nunito Sans', sans-serif;
+@font-family_Nunito_primary: @font-family-name__base, @font-family__sans-serif;
+@font-family-name__base2: 'Raleway', sans-serif;
+@font-family_Ralway_secondary: @font-family-name__base2, @font-family__sans-serif;
+
+//  Font families guide also in lib/css
+@font-family__sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family__serif: Georgia, 'Times New Roman', Times, serif;
+@font-family__monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+@font-family__base: @font-family__sans-serif;
+
+/* Company Colors */
+@company_color_Steel_Blue: #4882C3;
+@company_color_De_York: #8DCDA0;
+@company_color_Rob_Roy: #E6D067;
+@company_color_Barley_Corn: #948d52;
+@company_color_Black: #000000;
+@company_color_Steel_Grey: #7A7A7A;
+@company_color_Boulder: #D8D8D8;
+@company_color_Alabaster: #7B7B7B;
+@company_color_White: #FFFFFF;
+
+
+@series_color_Active_Series: #9e9452;
+@series_color_Field_Dog: #e6d067;
+@series_color_Bird_Dog: #8dcda0;
+@series_color_Dock_Dog: #80d0d8;
+@series_color_Tracking_Dog: #dae79a;
+@series_color_Active_Series: #fbb363;
+@series_color_K9_Series: #232176;
+@series_color_Police_K9: #4882c3;
+@series_color_Project_K9: #213f99;
+@series_color_Elite_2_Series: #5a7b45;
+@series_color_Working_Dog: #8a8f3d;
+@series_color_Sporting_Dog:#b38c2c;
+@series_color_Herding_Dog:#68b15c;
+@series_color_Sled_Dog:#8da4b8;
+
+//Global Default Styles settings for site
+& when (@media-common = true) {
+  body {
+    font-family: @font-family_Ralway_secondary;
+    color: @company_color_Black;
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+    a {
+      font-family: @font-family_Nunito_primary;
+      color: @company_color_Black;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: underline;
+      &:hover {
+        color: @company_color_Black;
+      }
+      &:active {
+        color: @company_color_Black;
+      }
+      &:visited {
+        color: @company_color_Black;
+      }
+      .fa {
+        color:@company_color_White;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: @font-family_Nunito_primary;
+      color: @company_color_Black;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 38px;
+    }
+    h3 {
+      font-size: 32px;
+    }
+    h4 {
+      font-family: @font-family__sans-serif;
+      font-size: 26px;
+    }
+    h5 {
+      font-family: @font-family_Ralway_secondary;
+      font-size: 22px;
+    }
+    h6 {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    p {}
+
+    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more {
+      background: @company_color_Black;
+      font-family: @font-family_Nunito_primary;
+      color: @company_color_White;
+      padding: 13px 47px;
+      border: none;
+      border-radius: 2px;
+      font-weight: 500;
+      &:hover {
+        background: @company_color_Black;
+      }
+    }
+    button.action.secondary, button.action.subscribe.primary {
+      background: @company_color_White;
+      color: @company_color_Black;
+      border: 2px solid @company_color_Black;
+      padding: 12px 47px;
+    }
+    input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
+      background: #d8d8d82e;
+      font-size: 16px;
+      border: 1px solid #7a7a7a2e;
+      border-radius: 2px;
+      color: @company_color_Steel_Grey;
+      height: 44px;
+      font-family: @font-family_Ralway_secondary
+    }
+    ._keyfocus *:focus, input:not([disabled]):focus, textarea:not([disabled]):focus, select:not([disabled]):focus {
+      background: @company_color_White;
+      color: @company_color_Black;
+      border: 1px solid @company_color_Steel_Grey;
+      box-shadow: none;
+    }
+
+
+
+    .navigation {
+        background: @company_color_White;
+        width: 515px;
+        float: left;
+        top: -8px;
+        left: 15%;
+      .level0 {
+        &.active {
+          color: @company_color_Alabaster;
+        }
+        a.level-top {
+          text-transform: uppercase;
+          color: @company_color_Black;
+        }
+      }
+    }
+    .block-promo-wrapper .block-promo {
+      float: left;
+    }
+
+
+    .footerContent .footerUl {
+      margin-right: 85px;
+      float:left;
+    }
+    footer {
+      background: @company_color_Black;
+      color: @company_color_Alabaster;
+      &.page-footer {
+        .footer.content {
+          padding-top: 46px;
+          border-top: none;
+          margin-top:0;
+          .links li a {
+            color: white;
+            text-decoration: none;
+          }
+          h5 {
+            margin-top: 0;
+          }
+          .newsletter {
+            margin-right: 12px;
+            margin-bottom: 10px;
+            input[type="email"] {
+              background: @company_color_Boulder;
+              color: @company_color_Alabaster;
+            }
+            .form.subscribe {
+              padding-bottom: 25px;
+            }
+            button.action.subscribe.primary {
+              background: @company_color_Black;
+              border: 2px solid @company_color_White;
+              color: @company_color_White;
+            }
+            p {
+              font-weight: 700;
+            }
+            .block.newsletter .field .control:before {
+              display: none;
+            }
+          }
+          .socialLinks li {
+            display: inline-block;
+            padding-right: 30px;
+            padding-top: 10px;
+            a {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .categories-menu a:link, .categories-menu a:visited, .categories-menu a:hover, .categories-menu a:active, ul > li, ol > li a, .product-item-name > a {
+      //color: @company_color_grey;
+    }
+    &.catalog-product-view {
+      .page-title-wrapper span {
+      }
+      .product-info-price {
+      }
+      .product #product.info.description {
+        p {
+        }
+      }
+      .related {
+        .product {
+          a {
+          }
+          .price-box span {
+          }
+        }
+      }
+    }
+    &.page-products {
+      .product-item-info {
+        .product-item-link {
+        }
+        .price {
+        }
+      }
+    }
+
+    header {
+      .block-minicart {
+        .minicart-items-wrapper {
+          .product-item-name a {
+          }
+          .product-item-pricing {
+          }
+        }
+      }
+    }
+  }
+}
+// Mobile
+// (for all mobile styles.)
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  body {
+    h1 { font-size: 34px; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 26px; }
+    h4 { font-size: 21px; }
+    h5 { font-size: 20px; }
+    h6 { font-size: 13px; }
+    .logo { margin: -8px auto 25px 8% !important; }
+    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more {
+      font-size: 15px;
+      padding: 12px 47px;
+    }
+    input[type="text"], input[type="password"], inut[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
+      height: 42px;
+      font-size: 15px;
+    }
+
+    header, footer {
+      .navigation {
+        li {
+          //font-size: 12px;
+        }
+      }
+    }
+    .navigation {
+        background: none;
+        width: 100%;
+      .level0 {
+        a.level-top {
+          //color:@company_color_black;
+          //padding: 20px 40px 20px 15px;
+        }
+        &:last-child {
+          //border-bottom: #7d7d7d;
+        }
+        ul {
+          .submenu {
+            a {
+            }
+          }
+          .ui-menu-item > a {
+          }
+          a.level-top {
+            &:hover {
+              //cursor: pointer;
+              //background: @company_color_dGreen;
+              //color: @company_color_white;
+            }
+          }
+        }
+      }
+    }
+    .middleBlock .content {
+      color: #ffffff;
+      font-weight: 900;
+      top: 10px;
+    }
+    .block-promo-wrapper .block-promo {
+      text-align: center;
+    }
+
+  }
+}
+  // Tablet
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  body {
+    .logo {
+      margin: -8px auto 25px 5%;
+    }
+    h1 {
+      font-size: 44px;
+    }
+    h2 {
+      font-size: 36px;
+    }
+    h3 {
+      font-size: 30px;
+    }
+    h4 {
+      font-size: 24px;
+    }
+    h5 {
+      font-size: 20px;
+    }
+    h6 {
+      font-size: 13px;
+    }
+    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more {
+      font-size: 15px;
+      padding: 12px 47px;
+    }
+    input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
+      height: 42px;
+    }
+
+    .navigation {
+      left: 2%;
+      .level0 {
+        margin-right: 0;
+        & > .level-top, .submenu a {
+          //color: @company_color_black;
+        }
+
+      }
+      li.level-top {
+        //text-transform: uppercase;
+        //font-size: 17px;
+        &:hover {
+          //cursor: pointer;
+          //background: @company_color_dGreen;
+          a.level-top {
+            //color: @company_color_white;
+          }
+        }
+      }
+    }
+    .navigation {
+      li {
+        //font-size: 12px;
+      }
+    }
+    .block-promo {
+      width: 100%;
+    }
+  }
+}
+
+// Only in Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  body {
+    p { }
+    h1 { }
+    .logo {
+      margin: -8px auto 25px 4%;
+    }
+
+    .minicart-wrapper {
+      top: -28px;
+    }
+    .navigation {
+      left: 7%;
+      .level0 {
+        //margin-right: 0;
+        & > .level-top, .submenu a {
+          //color: ;
+        }
+        .submenu a:hover {
+        }
+        & > .level-top {
+          //padding: 0 17px;
+        }
+      }
+      li.level-top {
+
+        &:hover {
+          //cursor: pointer;
+          //background: ;
+          a.level-top {
+            //color: ;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  body .logo {
+    margin: -8px auto 25px 5%
+  }
+  a.home-top-left, .home-bottom-left {
+    margin-right: 2%;
+  }
+
+  a.block-promo {
+    &.home-top-left, &.home-top-right, &.home-bottom-left, &.home-bottom-right {
+      width: 49%;
+      img {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+  //Correction of Luma responsive styling
+  .checkout-shipping-method .actions-toolbar > .primary {
+    float: none;}
+    .checkout-payment-method .payment-methods {
+      //margin: 0;
+    }
+
+    Sport Dog Color Override of Magento Colors in default
+
+    .review-field-rating .review-control-vote:before { content: '\e605' '\e605' '\e605' '\e605' '\e605'; }
+    .minicart-wrapper .action.showcart .counter.qty { background: @company_color_Alabaster; }
+    .navigation .level0.active > .level-top, .navigation .level0.has-active > .level-top, .navigation .level0.active > a:not(.ui-state-active),
+    .navigation .level0.has-active > a:not(.ui-state-active) { border-color: @company_color_Alabaster; }
+    .fotorama__thumb-border { border: 1px solid @company_color_Alabaster; }
+    .swatch-option.selected { outline: 2px solid @company_color_Alabaster;}
+    .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after,
+    .fieldset > .fields > .field._required > .label:after { color: @company_color_Alabaster; }
+    .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before { background: @company_color_Alabaster!important; border-color: @company_color_Alabaster!important;  }
+    .abs-action-remove, .abs-discount-block .action.check, .popup .actions-toolbar .action.cancel, .paypal-button-widget .paypal-button,
+    .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .actions-toolbar > .action-delete,
+    .cart.table-wrapper .action.help.map, .checkout-index-index .modal-popup .modal-footer .action-hide-popup, .opc-wrapper .edit-address-link,
+    .opc-block-shipping-information .shipping-information-title .action-edit, .action-auth-toggle,
+    .checkout-payment-method .checkout-billing-address .action-cancel, .checkout-agreements-block .action-show,
+    .gift-options .actions-toolbar .action-cancel, .gift-summary .action-edit, .gift-summary .action-delete, .action-gift,
+    .gift-wrapping-title .action-remove, .wishlist.split.button > .action, .abs-add-fields .action.remove,
+    .paypal-review-discount .action.check, .cart-discount .action.check, .form-giftregistry-share .action.remove, .form-giftregistry-edit .action.remove,
+    .form-add-invitations .action.remove, .form-create-return .action.remove, .form.send.friend .action.remove { color: @company_color_Alabaster; }
+
+
+    //Default styling overrides
+body {
+
+  //Checkout
+  .opc-wrapper .step-title, .opc-block-shipping-information .shipping-information-title, .checkout-agreements-items .checkout-agreements-item-title, .opc-progress-bar-item._complete > span {
+    color: @company_color_Alabaster;
+  }
+  .opc-progress-bar-item._active > span {
+    color: @company_color_Alabaster;
+  }
+  .opc-block-summary > .title {
+    color: @company_color_Alabaster;
+  }
+
+}
+//end Checkout
+
+//Product tab info
+.product.data.items > .item.title > .switch {
+  color: @company_color_Alabaster;
+  //background: ;
+}
+.data.switch .counter {
+  color: @company_color_Alabaster;
+}
+.product.data.items > .item.content {
+  //background: ;
+  color: @company_color_Alabaster;
+}
+#product.info.description ul > li {
+  color: @company_color_Alabaster;
+}
+.product.data.items > .item.title:not(.disabled) > .switch:active, .product.data.items > .item.title.active > .switch, .product.data.items > .item.title.active > .switch:focus, .product.data.items > .item.title.active > .switch:hover {
+  //background: ;
+  color: @company_color_Alabaster;
+}
+//end Product tab info
+
+.content-heading {
+  &:before {
+    //position: relative;
+    //top: 0;
+    //margin-top: 50px;
+    //margin-bottom: 20px;
+  }
+  .title {
+    //margin: 0 0 20px;
+  }
+}
+.action.primary {
+  //padding: 8px 15px;
+}
+a.action.tocompare {
+  //display: none !important;
+}
+//Removing items via Display None.  Eventually use XML
+.product-reviews-summary, .sidebar-additional .block-compare {
+  //display: none;
+}
+
+.breadcrumbs a, .breadcrumbs a:visited {
+  //color: ;
+}
+.minicart-wrapper .action.showcart:before {
+  color: @company_color_Alabaster;
+}
+
+.block-promo .title {
+  //font-weight: 400;
+}
+a.action.compare:before {
+  //display:none;
+}
+
+.navigation .level0 .submenu {
+  //background: ;
+  //border: none;
+}
+.products-grid .product-item-info:hover, .products-grid .product-item-info.active {
+  //background: #c2c2c2;
+}
+.nav-sections {
+  //background: ;
+}
+a.nav-sections-item-switch {
+  color: @company_color_Alabaster;
+}
+.filter-options-title:hover {
+  color: @company_color_Alabaster;
+}

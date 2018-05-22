@@ -24,6 +24,8 @@
     <!--<move element="top.links" destination="header.container" after="navigation.section"/>-->
     <referenceBlock name="report.bugs" remove="true" />
     <referenceBlock name="footer_links" remove="true"/>
+    <referenceBlock name="invitation_link_top" remove="true"/>
+
     <!-- REMOVE WELCOME MESSAGE -->
     <referenceBlock name="header">
         <arguments>

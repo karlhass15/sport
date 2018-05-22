@@ -7,7 +7,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-
+        <!--Block for Rivet Works code snippets or other full page bleed content-->
         <container name="rivit-works-banner-hp" htmlClass="rivitBanner" htmlTag="div">
             <block class="Magento\Cms\Block\Block" name="rivit_works_banner_hp">
                 <arguments>

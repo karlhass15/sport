@@ -204,6 +204,8 @@ return [
     'Magento_ProductVideoStaging' => 1,
     'Magento_WishlistAnalytics' => 1,
     'Magento_Worldpay' => 1,
+    'Plumrocket_Base' => 1,
+    'Plumrocket_SocialLoginPro' => 1,
     'Shopial_Facebook' => 0,
     'Temando_Shipping' => 1,
     'Vertex_Tax' => 1,

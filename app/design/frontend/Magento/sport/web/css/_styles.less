@@ -7,6 +7,7 @@
 @import 'source/_sources.less'; // Theme styles
 @import 'source/_components.less'; // Components styles (modal/sliding panel)
 
+//Removeal of Rivet Branding
 #TOG .rvt-pull-right {display: none;}
 #TOG .rvt-theme-light .rvt-t-btn-default{
   color: @company_color_Black !important;
@@ -14,6 +15,15 @@
   width: 200px;
   margin: 47px auto;
 }
+//Change Rivet Star Color
+//Top-Stars Customer Experience
+#TOG .rvt-theme-light .rvt-no-link, #TOG [class*=rvt-theme-] .rvt-theme-light .rvt-no-link, #TOG [class*=rvt-theme-] [class*=rvt-theme-] .rvt-theme-light .rvt-no-link {
+  color: #f1cb1a !important;
+}
+#TOG .rvt-theme-photo .rvt-no-link, #TOG [class*="rvt-theme-"] .rvt-theme-photo .rvt-no-link, #TOG [class*="rvt-theme-"] [class*="rvt-theme-"] .rvt-theme-photo .rvt-no-link {
+  color: #f1cb1a !important;
+}
+
 
 a.action.advanced, .header.panel .header.links li:first-child, .header.panel .header.links li:nth-child(2), .header.panel .header.links li:last-child {
   display: none;
@@ -37,7 +47,9 @@ body .minicart-wrapper .action.showcart:before {
 .preFooter {
   padding: 30px 20px;
 }
-
+.prod-col-one {
+  padding: 20px 0 30px;
+}
 
   body .footerContent {
     font-weight: 500;

@@ -23,6 +23,8 @@
 !/update/.htaccess
 !/README.md
 
+!/.docker
+!/.docker/**
 !/docker-compose.yml
 !/bin
 !/bin/*/

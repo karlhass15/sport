@@ -34,7 +34,8 @@ services:
       - phpfpm
       - redis
       - elasticsearch
-    volumes: &appvolumes
+    volumes:
+      - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf
       - .:/var/www/html:delegated
       - ~/.composer:/var/www/.composer:delegated
       - sockdata:/sock
@@ -43,7 +44,12 @@ services:
     image: markoshust/magento-php:7.1-fpm
     links:
       - db
-    volumes: *appvolumes
+    volumes:
+      - ./.docker/php.ini:/usr/local/etc/php/php.ini
+      - .:/var/www/html:delegated
+      - ~/.composer:/var/www/.composer:delegated
+      - sockdata:/sock
+
 
   cron:
     image: markoshust/magento-php:7.1-fpm
@@ -52,7 +58,10 @@ services:
     tty: true
     links:
       - db
-    volumes: *appvolumes
+    volumes:
+      - .:/var/www/html:delegated
+      - ~/.composer:/var/www/.composer:delegated
+      - sockdata:/sock
 
   db:
     image: percona:5.7

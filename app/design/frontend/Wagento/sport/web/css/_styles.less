@@ -32,16 +32,37 @@ body .page-header .header.panel {
   max-width: 100%;
   background: #f7f7f7;
 }
-body .panel.header .links .authorization-link a{
-  //position: absolute;
-  //top: 10.4%;
-  //right: 12%;
-  //z-index: 3;
-  //text-decoration: none!important;
-}
 
-body .minicart-wrapper .action.showcart:before {
-  color: @company_color_Black;
+
+body .minicart-wrapper .action.showcart {
+
+   .counter.qty {
+     background: #7b7b7b;
+     height: auto;
+     font-size: 13px;
+     padding: 0 2px;
+     left: 17px;
+     bottom: 16px;
+     position: absolute;
+     z-index: -1;
+   }
+   &:before {
+     color: @company_color_Black;
+   }
+   .opc-estimated-wrapper .counter.qty {
+     padding: 0 2px;
+     left: 33px;
+     bottom: 20px;
+   }
+ }
+
+.checkout-index-index {
+  .header.panel > .header.links > li.authorization-link, .minicart-wrapper, .block-search .label  {
+    display: none;
+  }
+  .opc-estimated-wrapper .minicart-wrapper {
+    display: block;
+  }
 }
 
 .preFooter {
@@ -607,34 +628,62 @@ a.block-promo {
   }
 }
 
-  //Correction of Luma responsive styling
+body {
+  //Correction of blank responsive styling
   .checkout-shipping-method .actions-toolbar > .primary {
-    float: none;}
-    .checkout-payment-method .payment-methods {
-      //margin: 0;
-    }
+    float: none;
+  }
+  .checkout-payment-method .payment-methods {
+    //margin: 0;
+  }
 
-    Sport Dog Color Override of Magento Colors in default
+  //Sport Dog Color Override of Magento Colors in default
 
-    .review-field-rating .review-control-vote:before { content: '\e605' '\e605' '\e605' '\e605' '\e605'; }
-    .minicart-wrapper .action.showcart .counter.qty { background: @company_color_Alabaster; }
-    .navigation .level0.active > .level-top, .navigation .level0.has-active > .level-top, .navigation .level0.active > a:not(.ui-state-active),
-    .navigation .level0.has-active > a:not(.ui-state-active) { border-color: @company_color_Alabaster; }
-    .fotorama__thumb-border { border: 1px solid @company_color_Alabaster; }
-    .swatch-option.selected { outline: 2px solid @company_color_Alabaster;}
-    .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after,
-    .fieldset > .fields > .field._required > .label:after { color: @company_color_Alabaster; }
-    .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before { background: @company_color_Alabaster!important; border-color: @company_color_Alabaster!important;  }
-    .abs-action-remove, .abs-discount-block .action.check, .popup .actions-toolbar .action.cancel, .paypal-button-widget .paypal-button,
-    .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .actions-toolbar > .action-delete,
-    .cart.table-wrapper .action.help.map, .checkout-index-index .modal-popup .modal-footer .action-hide-popup, .opc-wrapper .edit-address-link,
-    .opc-block-shipping-information .shipping-information-title .action-edit, .action-auth-toggle,
-    .checkout-payment-method .checkout-billing-address .action-cancel, .checkout-agreements-block .action-show,
-    .gift-options .actions-toolbar .action-cancel, .gift-summary .action-edit, .gift-summary .action-delete, .action-gift,
-    .gift-wrapping-title .action-remove, .wishlist.split.button > .action, .abs-add-fields .action.remove,
-    .paypal-review-discount .action.check, .cart-discount .action.check, .form-giftregistry-share .action.remove, .form-giftregistry-edit .action.remove,
-    .form-add-invitations .action.remove, .form-create-return .action.remove, .form.send.friend .action.remove { color: @company_color_Alabaster; }
+  .review-field-rating .review-control-vote:before {
+    content: '\e605' '\e605' '\e605' '\e605' '\e605';
+  }
+  .minicart-wrapper .action.showcart .counter.qty {
+    background: @company_color_Alabaster;
+  }
+  .navigation .level0.active > .level-top, .navigation .level0.has-active > .level-top, .navigation .level0.active > a:not(.ui-state-active),
+  .navigation .level0.has-active > a:not(.ui-state-active) {
+    border-color: @company_color_Alabaster;
+  }
+  .fotorama__thumb-border {
+    border: 1px solid @company_color_Alabaster;
+  }
+  .swatch-option.selected {
+    outline: 2px solid @company_color_Alabaster;
+  }
+  .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after,
+  .fieldset > .fields > .field._required > .label:after {
+    color: @company_color_Alabaster;
+  }
+  .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before {
+    background: @company_color_Alabaster !important;
+    border-color: @company_color_Alabaster !important;
+  }
+  .abs-action-remove, .abs-discount-block .action.check, .popup .actions-toolbar .action.cancel, .paypal-button-widget .paypal-button,
+  .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .actions-toolbar > .action-delete,
+  .cart.table-wrapper .action.help.map, .checkout-index-index .modal-popup .modal-footer .action-hide-popup, .opc-wrapper .edit-address-link,
+  .opc-block-shipping-information .shipping-information-title .action-edit, .action-auth-toggle,
+  .checkout-payment-method .checkout-billing-address .action-cancel, .checkout-agreements-block .action-show,
+  .gift-options .actions-toolbar .action-cancel, .gift-summary .action-edit, .gift-summary .action-delete, .action-gift,
+  .gift-wrapping-title .action-remove, .wishlist.split.button > .action, .abs-add-fields .action.remove,
+  .paypal-review-discount .action.check, .cart-discount .action.check, .form-giftregistry-share .action.remove, .form-giftregistry-edit .action.remove,
+  .form-add-invitations .action.remove, .form-create-return .action.remove, .form.send.friend .action.remove {
+    color: @company_color_Alabaster;
+  }
 
+  .abs-action-button-as-link:hover, .abs-action-remove:hover, .cart.table-wrapper .action.help.map:hover, .opc-wrapper .edit-address-link:hover,
+  .opc-block-shipping-information .shipping-information-title .action-edit:hover, .action-auth-toggle:hover, .checkout-payment-method .checkout-billing-address
+  .action-cancel:hover, .checkout-agreements-block .action-show:hover, .cart-summary .block.giftcard .action.check:hover, .gift-options .actions-toolbar
+  .action-cancel:hover, .table-comparison .wishlist.split.button > .action:hover, .product-items .wishlist.split.button > .action:hover, .paypal-button-widget
+  .paypal-button:hover, .abs-add-fields .action.remove:hover, .form-giftregistry-share .action.remove:hover, .form-giftregistry-edit .action.remove:hover,
+  .form-add-invitations .action.remove:hover, .form-create-return .action.remove:hover, .form.send.friend .action.remove:hover {
+    color: initial;
+  }
+}
 
     //Default styling overrides
 body {

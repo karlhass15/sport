@@ -50,18 +50,20 @@ services:
       - ~/.composer:/var/www/.composer:delegated
       - sockdata:/sock
 
-
-  cron:
-    image: markoshust/magento-php:7.1-fpm
-    user: root
-    command: /usr/local/bin/cronstart
-    tty: true
-    links:
-      - db
-    volumes:
-      - .:/var/www/html:delegated
-      - ~/.composer:/var/www/.composer:delegated
-      - sockdata:/sock
+# crons are broken, causing system crash: https://github.com/magento/magento2/pull/12497
+# handle crons manually with: bin/docker/magento cron:run
+#
+#  cron:
+#    image: markoshust/magento-php:7.1-fpm
+#    user: root
+#    command: /usr/local/bin/cronstart
+#    tty: true
+#    links:
+#      - db
+#    volumes:
+#      - .:/var/www/html:delegated
+#      - ~/.composer:/var/www/.composer:delegated
+#      - sockdata:/sock
 
   db:
     image: percona:5.7

@@ -208,8 +208,7 @@ return [
     'Plumrocket_SocialLoginPro' => 1,
     'Shopial_Facebook' => 0,
     'Temando_Shipping' => 1,
-    'Vertex_Tax' => 1,
-    'Wagento_Subscription' => 1
+    'Vertex_Tax' => 1
   ],
   'scopes' => [
     'websites' => [

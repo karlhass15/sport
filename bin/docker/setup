@@ -3,7 +3,7 @@
 
 if [ ! -f app/etc/env.php ]; then
     echo "Applying default Docker env.php"
-    cp app/etc/env.docker.php app/etc/env.php
+    cp .docker/env.php app/etc/
 fi
 
 echo "Composer install."

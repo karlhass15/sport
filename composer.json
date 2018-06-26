@@ -18,10 +18,9 @@
         }
     },
     "require": {
-        "magento/magento-cloud-metapackage": "2.2.4",
-        "fastly/magento2": "^1.2.54",
-        "gene/bluefoot": "^1.0",
-        "magento/product-enterprise-edition": "2.2.4"
+        "magento/magento-cloud-metapackage": ">=2.2.4 <2.2.5",
+        "fastly/magento2": "^1.2",
+        "gene/bluefoot": "^1.0"
     },
     "config": {
         "use-include-path": true

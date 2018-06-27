@@ -207,6 +207,7 @@ return [
     'Plumrocket_Base' => 1,
     'Plumrocket_SocialLoginPro' => 1,
     'Shopial_Facebook' => 0,
+    'Swarming_SubscribePro' => 1,
     'Temando_Shipping' => 1,
     'Vertex_Tax' => 1,
     'WeltPixel_Backend' => 1,

@@ -1,0 +1,39 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Extend fallback
+//  _____________________________________________
+
+//  Magento extend fallback handling. Should be EMPTY.
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .category-image-container {
+        position: relative;
+        .page-title-wrapper {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            text-align: center;
+            h1 {
+                color: @color-white;
+                text-transform: uppercase;
+                text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.74);
+                margin: 0;
+            }
+        }
+
+        .category-image {
+            .image {
+                width: 100%;
+            }
+        }
+    }
+}

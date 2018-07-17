@@ -12,5 +12,6 @@
         </referenceContainer>
         <move element="page.main.title" destination="category-image-container" before="-"/>
         <move element="category.image" destination="category-image-container" after="page.main.title"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
     </body>
 </page>

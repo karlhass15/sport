@@ -7,15 +7,15 @@
 //  Variables
 //  ---------------------------------------------
 
-@product-name-link__color: @text__color;
-@product-name-link__color__active: @text__color;
-@product-name-link__color__hover: @text__color;
-@product-name-link__color__visited: @text__color;
+@product-name-link__color: @color-black;
+@product-name-link__color__active: @color-black;
+@product-name-link__color__hover: @color-black;
+@product-name-link__color__visited: @color-black;
 
 @product-name-link__text-decoration: none;
-@product-name-link__text-decoration__active: @link__hover__text-decoration;
-@product-name-link__text-decoration__hover: @link__hover__text-decoration;
-@product-name-link__text-decoration__visited: @link__hover__text-decoration;
+@product-name-link__text-decoration__active: none;
+@product-name-link__text-decoration__hover: none;
+@product-name-link__text-decoration__visited: none;
 
 //
 //  Common
@@ -51,6 +51,8 @@
                 hyphens: auto;
                 margin: @indent__xs 0;
                 word-wrap: break-word;
+                text-transform: uppercase;
+                font-size: 18px;
             }
 
             &-info {
@@ -103,8 +105,8 @@
                 margin: @indent__s 0 @indent__m;
 
                 .price {
-                    .lib-font-size(14);
-                    font-weight: @font-weight__bold;
+                    .lib-font-size(22);
+                    font-weight: @font-weight__regular;
                     white-space: nowrap;
                 }
 
@@ -269,6 +271,10 @@
             &:extend(.abs-reset-image-wrapper all);
         }
     }
+
+    .category-view {
+        padding-top: 50px;
+    }
 }
 
 //
@@ -283,6 +289,15 @@
             &-photo {
                 padding: 0 @indent__s @indent__s 0;
                 width: 30%;
+            }
+        }
+    }
+
+    .category-image-container {
+        .page-title-wrapper {
+            bottom: 10px !important;
+            h1 {
+                font-size: 30px;
             }
         }
     }
@@ -336,6 +351,15 @@
     }
 }
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .product-item-actions {
+        .actions-primary + .actions-secondary {
+            display: block !important;
+            margin-top: 10px;
+        }
+    }
+}
+
 //
 //  Desktop
 //  _____________________________________________
@@ -345,6 +369,10 @@
         .products-grid {
             .product-item {
                 width: 100%/3;
+                text-align: center;
+                .product-item-details {
+                    text-align: left;
+                }
             }
         }
     }
@@ -413,6 +441,15 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media all and (max-width: (@screen__950)) {
+    .product-item-actions {
+        .actions-primary + .actions-secondary {
+            display: block;
+            margin-top: 10px;
         }
     }
 }

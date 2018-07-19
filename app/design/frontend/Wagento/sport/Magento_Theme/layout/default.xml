@@ -8,17 +8,7 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="default_head_blocks"/>
 
-    <body>
-        <referenceContainer name="footer">
-            <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
-                <block class="Magento\Cms\Block\Block" name="footer_links_block">
-                    <arguments>
-                        <argument name="block_id" xsi:type="string">footer_links_block</argument>
-                    </arguments>
-                </block>
-            </container>
-        </referenceContainer>
-    </body>
+
 
     <move element="navigation.sections" destination="header-wrapper" after="logo"/>
     <!--<move element="top.links" destination="header.container" after="navigation.section"/>-->
@@ -32,4 +22,16 @@
             <argument name="show_part" xsi:type="string">other</argument>
         </arguments>
     </referenceBlock>
+
+    <body>
+        <referenceContainer name="footer">
+            <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
+                <block class="Magento\Cms\Block\Block" name="footer_links_block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_links_block</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
 </page>

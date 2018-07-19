@@ -30,15 +30,15 @@ a.action.advanced,  .header.panel .header.links li:nth-child(2), .header.panel .
 }
 .header.panel > .header.links > li a {
   text-decoration: none;
+  color:#ffffff;
 }
 body .page-header .header.panel {
   max-width: 100%;
-  background: #f7f7f7;
+  background: #000000;
+  color: #ffffff;
 }
 
-
 body .minicart-wrapper .action.showcart {
-
    .counter.qty {
      background: #7b7b7b;
      height: auto;
@@ -108,13 +108,6 @@ body .block.newsletter {
       font-size: 20px;
     }
   }
-}
-body .footerLogo {
-  clear:both;
-}
-
-body .footer .copyright {
-  text-align: center;
 }
 
 body .page-wrapper > .page-bottom {
@@ -247,6 +240,10 @@ a.block-promo {
     font-size: 16px;
     font-weight: 300;
     width: 100%;
+    .page-main {
+      padding-right: 0;
+      padding-left: 0;
+    }
     a {
       font-family: @font-family_Nunito_primary;
       color: @company_color_Black;
@@ -295,7 +292,7 @@ a.block-promo {
     }
     p {}
 
-    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more {
+    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more, a.action.primary {
       background: @company_color_Black;
       font-family: @font-family_Nunito_primary;
       color: @company_color_White;
@@ -355,19 +352,57 @@ a.block-promo {
       border-top: none;
     }
     .block-search .label {
-      margin: -69px 56px 0 0;
+      margin: -68px 56px 0 0;
       width: 10px;
     }
+    &.cms-home .page-title-wrapper {
+      display: none;
+    }
+    .hpBanner {
+      position: relative;
+      text-align: right;
+      img {
+        min-width: 100%;
+        max-height: 500px;
+      }
+      .hpBanner-text {
+        position: absolute;
+        top: 21%;
+        right: 8%;
+        h1 {
+          margin-bottom: 20px;
+          font-size: 5rem;
+          color: @company_color_White;
+        }
+        h5 {
+          color: @company_color_White;
+
+        }
+        a {
+          margin-top: 15px;
+        }
+      }
+    }
+
+
     .footerContent .footerUl {
       margin-right: 85px;
       float:left;
     }
+    .footerLogo {
+      clear:both;
+      padding-top: 15px;
+    }
+    .footer .copyright {
+      text-align: center;
+    }
+
     footer {
       background: @company_color_Black;
       color: @company_color_Alabaster;
       &.page-footer {
         .footer.content {
-          padding-top: 46px;
+          padding: 30px 40px 15px 40px;
           border-top: none;
           margin-top:0;
           .links li a {
@@ -471,7 +506,27 @@ a.block-promo {
       height: 42px;
       font-size: 15px;
     }
+    .hpBanner {
+      text-align: center;
+      .hpBanner-text {
+        position: absolute;
+        top: 9%;
+        h1 {
+          margin-bottom: 0px;
+          font-size: 3rem;
+        }
+        h5 {
+          font-size: 1.5rem;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        a {
+          margin-top: 5px;
+          padding: 9px 35px;
 
+        }
+      }
+    }
     header, footer {
       .navigation {
         li {
@@ -622,8 +677,14 @@ a.block-promo {
 }
 
 @media (min-width: 768px) {
+
+}
+@media (min-width: 768px) {
+  .navigation, .breadcrumbs, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main {
+    max-width: 100% !important;
+  }
   body .logo {
-    margin: -8px auto 25px 5%
+    margin: -8px auto 25px 25%
   }
   a.home-top-left, .home-bottom-left {
     margin-right: 2%;
@@ -636,6 +697,15 @@ a.block-promo {
         min-width: 100%;
       }
     }
+  }
+}
+@media (max-width: 1024px) {
+  body .block-search .label {
+    margin: -1px 20px 0 0;
+  }
+  body .navigation {
+    background: #f5f5f5;
+    width: 100%;
   }
 }
 

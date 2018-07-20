@@ -363,7 +363,6 @@ a.block-promo {
       text-align: right;
       img {
         min-width: 100%;
-        max-height: 500px;
       }
       .hpBanner-text {
         position: absolute;
@@ -383,8 +382,6 @@ a.block-promo {
         }
       }
     }
-
-
     .footerContent .footerUl {
       margin-right: 85px;
       float:left;
@@ -497,7 +494,6 @@ a.block-promo {
     h4 { font-size: 21px; }
     h5 { font-size: 20px; }
     h6 { font-size: 13px; }
-    .logo { margin: -8px auto 25px 8% !important; }
     button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more {
       font-size: 15px;
       padding: 12px 47px;
@@ -533,6 +529,9 @@ a.block-promo {
           //font-size: 12px;
         }
       }
+    }
+    .logo {
+      margin: -8px auto 25px 25%;
     }
     .navigation {
         background: none;
@@ -576,9 +575,7 @@ a.block-promo {
   // Tablet
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
   body {
-    .logo {
-      margin: -8px auto 25px 5%;
-    }
+
     h1 {
       font-size: 44px;
     }
@@ -680,12 +677,13 @@ a.block-promo {
 
 }
 @media (min-width: 768px) {
+  body .logo {
+    margin: -8px auto 25px 40%;
+  }
   .navigation, .breadcrumbs, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main {
     max-width: 100% !important;
   }
-  body .logo {
-    margin: -8px auto 25px 25%
-  }
+
   a.home-top-left, .home-bottom-left {
     margin-right: 2%;
   }

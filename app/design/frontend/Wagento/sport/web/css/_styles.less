@@ -213,9 +213,10 @@ a.block-promo {
     font-size: 16px;
     font-weight: 300;
     width: 100%;
-    .page-main {
-      padding-right: 0;
-      padding-left: 0;
+    &.cms-home {
+      .page-main {
+        width: 100%;
+      }
     }
     a {
       font-family: @font-family_Nunito_primary;
@@ -611,7 +612,11 @@ a.block-promo {
     .logo {
       margin: -8px auto 25px 4%;
     }
-
+    .page-main {
+      padding-right: 0;
+      padding-left: 0;
+      width: 1280px;
+    }
     .minicart-wrapper {
       top: -28px;
     }

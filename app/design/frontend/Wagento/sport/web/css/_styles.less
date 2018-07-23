@@ -4,14 +4,15 @@
  */
 
 @import 'source/lib/_lib.less'; // Global lib
+@import 'source/lib/variables/_colors' ; // Theme colors
 @import 'source/_sources.less'; // Theme styles
 @import 'source/_components.less'; // Components styles (modal/sliding panel)
 
 //Removeal of Rivet Branding
 #TOG .rvt-pull-right {display: none;}
 #TOG .rvt-theme-light .rvt-t-btn-default{
-  color: @company_color_Black !important;
-  border-color: @company_color_Black !important;
+  color: @color-black !important;
+  border-color: @color-black !important;
   width: 200px;
   margin: 47px auto;
 }
@@ -24,18 +25,17 @@
   color: #f1cb1a !important;
 }
 
-
 a.action.advanced,  .header.panel .header.links li:nth-child(2), .header.panel .header.links li:last-child {
   display: none;
 }
 .header.panel > .header.links > li a {
   text-decoration: none;
-  color:#ffffff;
+  color: @color-white;
 }
 body .page-header .header.panel {
   max-width: 100%;
-  background: #000000;
-  color: #ffffff;
+  background: @color-black;
+  color: @color-white;
 }
 
 body .minicart-wrapper .action.showcart {
@@ -50,7 +50,7 @@ body .minicart-wrapper .action.showcart {
      z-index: -1;
    }
    &:before {
-     color: @company_color_Black;
+     color: @color-black;
    }
    .opc-estimated-wrapper .counter.qty {
      padding: 0 2px;
@@ -76,10 +76,9 @@ body .minicart-wrapper .action.showcart {
 }
 
   body .footerContent {
-    font-weight: 500;
     h5, .block .title strong {
       font-size: 20px;
-      color: @company_color_White;
+      color: @color-white;
       margin-bottom: 10px;
     }
     ul {
@@ -88,7 +87,7 @@ body .minicart-wrapper .action.showcart {
 
       li a{
         list-style: none;
-        color: @company_color_Alabaster;
+        color: @color-alabaster;
         text-transform: uppercase;
         font-size: 12px;
         text-decoration: none;
@@ -103,7 +102,7 @@ body .block.newsletter {
   display: none;
   .title {
     display: block;
-    color: @company_color_White;
+    color: @color-white;
     strong {
       font-size: 20px;
     }
@@ -117,7 +116,7 @@ body .page-wrapper > .page-bottom {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-  background: @company_color_Boulder;
+  background: @color-boulder;
 }
 
 
@@ -167,7 +166,7 @@ a.block-promo {
 .home-top-left, .home-top-right, .home-bottom-left, .home-bottom-right, .middleBlock {
   height: 100%;
   .content {
-    color: @company_color_White;
+    color: @color-white;
     font-weight: 900;
     top: 40px;
     width: 100%;
@@ -205,38 +204,12 @@ a.block-promo {
 @font-family__monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 @font-family__base: @font-family__sans-serif;
 
-/* Company Colors */
-@company_color_Steel_Blue: #4882C3;
-@company_color_De_York: #8DCDA0;
-@company_color_Rob_Roy: #E6D067;
-@company_color_Barley_Corn: #948d52;
-@company_color_Black: #000000;
-@company_color_Steel_Grey: #7A7A7A;
-@company_color_Boulder: #D8D8D8;
-@company_color_Alabaster: #7B7B7B;
-@company_color_White: #FFFFFF;
-
-
-@series_color_Active_Series: #9e9452;
-@series_color_Field_Dog: #e6d067;
-@series_color_Bird_Dog: #8dcda0;
-@series_color_Dock_Dog: #80d0d8;
-@series_color_Tracking_Dog: #dae79a;
-@series_color_Active_Series: #fbb363;
-@series_color_K9_Series: #232176;
-@series_color_Police_K9: #4882c3;
-@series_color_Project_K9: #213f99;
-@series_color_Elite_2_Series: #5a7b45;
-@series_color_Working_Dog: #8a8f3d;
-@series_color_Sporting_Dog:#b38c2c;
-@series_color_Herding_Dog:#68b15c;
-@series_color_Sled_Dog:#8da4b8;
 
 //Global Default Styles settings for site
 & when (@media-common = true) {
   body {
     font-family: @font-family_Ralway_secondary;
-    color: @company_color_Black;
+    color: @color-black;
     font-size: 16px;
     font-weight: 300;
     width: 100%;
@@ -246,27 +219,27 @@ a.block-promo {
     }
     a {
       font-family: @font-family_Nunito_primary;
-      color: @company_color_Black;
+      color: @color-black;
       font-size: 16px;
       font-weight: 700;
       text-decoration: underline;
       &:hover {
-        color: @company_color_Black;
+        color: @color-black;
       }
       &:active {
-        color: @company_color_Black;
+        color: @color-black;
       }
       &:visited {
-        color: @company_color_Black;
+        color: @color-black;
       }
       .fa {
-        color:@company_color_White;
+        color:@color-white;
       }
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: @font-family_Nunito_primary;
-      color: @company_color_Black;
+      color: @color-black;
     }
     h1 {
       font-size: 52px;
@@ -293,21 +266,21 @@ a.block-promo {
     p {}
 
     button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more, a.action.primary {
-      background: @company_color_Black;
+      background: @color-black;
       font-family: @font-family_Nunito_primary;
-      color: @company_color_White;
+      color: @color-white;
       padding: 13px 47px;
       border: none;
       border-radius: 2px;
       font-weight: 500;
       &:hover {
-        background: @company_color_Black;
+        background: @color-black;
       }
     }
     button.action.secondary, button.action.subscribe.primary {
-      background: @company_color_White;
-      color: @company_color_Black;
-      border: 2px solid @company_color_Black;
+      background: @color-white;
+      color: @color-black;
+      border: 2px solid @color-black;
       padding: 12px 47px;
     }
     input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
@@ -315,32 +288,30 @@ a.block-promo {
       font-size: 16px;
       border: 1px solid #7a7a7a2e;
       border-radius: 2px;
-      color: @company_color_Steel_Grey;
+      color: @color-steel-grey;
       height: 44px;
       font-family: @font-family_Ralway_secondary
     }
     ._keyfocus *:focus, input:not([disabled]):focus, textarea:not([disabled]):focus, select:not([disabled]):focus {
-      background: @company_color_White;
-      color: @company_color_Black;
-      border: 1px solid @company_color_Steel_Grey;
+      background: @color-white;
+      color: @color-black;
+      border: 1px solid @color-steel-grey;
       box-shadow: none;
     }
 
-
-
     .navigation {
-        background: @company_color_White;
+        background: @color-white;
         width: 515px;
         float: left;
         top: -8px;
         left: 15%;
       .level0 {
         &.active {
-          color: @company_color_Alabaster;
+          color: @color-alabaster;
         }
         a.level-top {
           text-transform: uppercase;
-          color: @company_color_Black;
+          color: @color-black;
         }
       }
     }
@@ -371,10 +342,10 @@ a.block-promo {
         h1 {
           margin-bottom: 20px;
           font-size: 5rem;
-          color: @company_color_White;
+          color: @color-white;
         }
         h5 {
-          color: @company_color_White;
+          color: @color-white;
 
         }
         a {
@@ -394,8 +365,8 @@ a.block-promo {
     }
 
     footer {
-      background: @company_color_Black;
-      color: @company_color_Alabaster;
+      background: @color-black;
+      color: @color-alabaster;
       &.page-footer {
         .footer.content {
           padding: 30px 40px 15px 40px;
@@ -412,16 +383,16 @@ a.block-promo {
             margin-right: 12px;
             margin-bottom: 10px;
             input[type="email"] {
-              background: @company_color_Boulder;
-              color: @company_color_Alabaster;
+              background: @color-boulder;
+              color: @color-alabaster;
             }
             .form.subscribe {
               padding-bottom: 25px;
             }
             button.action.subscribe.primary {
-              background: @company_color_Black;
-              border: 2px solid @company_color_White;
-              color: @company_color_White;
+              background: @color-black;
+              border: 2px solid @color-white;
+              color: @color-white;
             }
             p {
               font-weight: 700;
@@ -537,7 +508,7 @@ a.block-promo {
         width: 100%;
       .level0 {
         a.level-top {
-          //color:@company_color_black;
+          //color:color_black;
           //padding: 20px 40px 20px 15px;
         }
         &:last-child {
@@ -553,15 +524,15 @@ a.block-promo {
           a.level-top {
             &:hover {
               //cursor: pointer;
-              //background: @company_color_dGreen;
-              //color: @company_color_white;
+              //background: @color_dGreen;
+              //color: @color_white;
             }
           }
         }
       }
     }
     .middleBlock .content {
-      color: #ffffff;
+      color: @color-white;
       font-weight: 900;
       top: 10px;
     }
@@ -671,9 +642,7 @@ a.block-promo {
   }
 }
 
-@media (min-width: 768px) {
 
-}
 @media (min-width: 768px) {
   body .logo {
     margin: -8px auto 25px 40%;
@@ -720,25 +689,25 @@ body {
     content: '\e605' '\e605' '\e605' '\e605' '\e605';
   }
   .minicart-wrapper .action.showcart .counter.qty {
-    background: @company_color_Alabaster;
+    background: @color-alabaster;
   }
   .navigation .level0.active > .level-top, .navigation .level0.has-active > .level-top, .navigation .level0.active > a:not(.ui-state-active),
   .navigation .level0.has-active > a:not(.ui-state-active) {
-    border-color: @company_color_Alabaster;
+    border-color: @color-alabaster;
   }
   .fotorama__thumb-border {
-    border: 1px solid @company_color_Alabaster;
+    border: 1px solid @color-alabaster;
   }
   .swatch-option.selected {
-    outline: 2px solid @company_color_Alabaster;
+    outline: 2px solid @color-alabaster;
   }
   .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after,
   .fieldset > .fields > .field._required > .label:after {
-    color: @company_color_Alabaster;
+    color: @color-alabaster;
   }
   .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before {
-    background: @company_color_Alabaster !important;
-    border-color: @company_color_Alabaster !important;
+    background: @color-alabaster !important;
+    border-color: @color-alabaster !important;
   }
   .abs-action-remove, .abs-discount-block .action.check, .popup .actions-toolbar .action.cancel, .paypal-button-widget .paypal-button,
   .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .actions-toolbar > .action-delete,
@@ -749,7 +718,7 @@ body {
   .gift-wrapping-title .action-remove, .wishlist.split.button > .action, .abs-add-fields .action.remove,
   .paypal-review-discount .action.check, .cart-discount .action.check, .form-giftregistry-share .action.remove, .form-giftregistry-edit .action.remove,
   .form-add-invitations .action.remove, .form-create-return .action.remove, .form.send.friend .action.remove {
-    color: @company_color_Alabaster;
+    color: @color-alabaster;
   }
 
   .abs-action-button-as-link:hover, .abs-action-remove:hover, .cart.table-wrapper .action.help.map:hover, .opc-wrapper .edit-address-link:hover,
@@ -767,13 +736,13 @@ body {
 
   //Checkout
   .opc-wrapper .step-title, .opc-block-shipping-information .shipping-information-title, .checkout-agreements-items .checkout-agreements-item-title, .opc-progress-bar-item._complete > span {
-    color: @company_color_Alabaster;
+    color: @color-alabaster;
   }
   .opc-progress-bar-item._active > span {
-    color: @company_color_Alabaster;
+    color: @color-alabaster;
   }
   .opc-block-summary > .title {
-    color: @company_color_Alabaster;
+    color: @color-alabaster;
   }
 
 }
@@ -781,22 +750,19 @@ body {
 
 //Product tab info
 .product.data.items > .item.title > .switch {
-  color: @company_color_Alabaster;
-  //background: ;
+  color: @color-alabaster;
 }
 .data.switch .counter {
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 .product.data.items > .item.content {
-  //background: ;
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 #product.info.description ul > li {
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 .product.data.items > .item.title:not(.disabled) > .switch:active, .product.data.items > .item.title.active > .switch, .product.data.items > .item.title.active > .switch:focus, .product.data.items > .item.title.active > .switch:hover {
-  //background: ;
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 //end Product tab info
 
@@ -826,7 +792,7 @@ a.action.tocompare {
   //color: ;
 }
 .minicart-wrapper .action.showcart:before {
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 
 .block-promo .title {
@@ -847,8 +813,8 @@ a.action.compare:before {
   //background: ;
 }
 a.nav-sections-item-switch {
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }
 .filter-options-title:hover {
-  color: @company_color_Alabaster;
+  color: @color-alabaster;
 }

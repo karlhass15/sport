@@ -4,6 +4,7 @@
  */
 
 @import 'source/lib/_lib.less'; // Global lib
+@import 'source/lib/variables/_colors' ; // Theme colors
 @import 'source/_sources.less'; // Theme styles
 @import 'source/_components.less'; // Components styles (modal/sliding panel)
 
@@ -24,9 +25,47 @@
   color: #f1cb1a !important;
 }
 
-
 a.action.advanced,  .header.panel .header.links li:nth-child(2), .header.panel .header.links li:last-child {
   display: none;
+}
+.header.panel > .header.links > li a {
+  text-decoration: none;
+  color: @color-white;
+}
+body .page-header .header.panel {
+  max-width: 100%;
+  background: @color-black;
+  color: @color-white;
+}
+
+body .minicart-wrapper .action.showcart {
+   .counter.qty {
+     background: #7b7b7b;
+     height: auto;
+     font-size: 13px;
+     padding: 0 2px;
+     left: 17px;
+     bottom: 16px;
+     position: absolute;
+     z-index: -1;
+   }
+   &:before {
+     color: @color-black;
+   }
+   .opc-estimated-wrapper .counter.qty {
+     padding: 0 2px;
+     left: 33px;
+     bottom: 20px;
+   }
+ }
+
+.checkout-index-index {
+  .header.panel > .header.links > li.authorization-link, .minicart-wrapper, .block-search .label  {
+    display: none;
+  }
+  .opc-estimated-wrapper .minicart-wrapper {
+    display: block;
+  }
 }
 
 .preFooter {
@@ -68,9 +107,6 @@ body .block.newsletter {
       font-size: 20px;
     }
   }
-}
-body .footerLogo {
-  clear:both;
 }
 
 body .page-wrapper > .page-bottom {
@@ -177,6 +213,30 @@ a.block-promo {
     font-size: 16px;
     font-weight: 300;
     width: 100%;
+    &.cms-home {
+      .page-main {
+        width: 100%;
+      }
+    }
+    a {
+      font-family: @font-family_Nunito_primary;
+      color: @color-black;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: underline;
+      &:hover {
+        color: @color-black;
+      }
+      &:active {
+        color: @color-black;
+      }
+      &:visited {
+        color: @color-black;
+      }
+      .fa {
+        color:@color-white;
+      }
+    }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: @font-family_Nunito_primary;
@@ -206,6 +266,18 @@ a.block-promo {
     }
     p {}
 
+    button.action.primary, button.action.secondary, .review-form .action.submit.primary, .action.submit.primary, .action.primary, .block-promo .button.more, a.action.primary {
+      background: @color-black;
+      font-family: @font-family_Nunito_primary;
+      color: @color-white;
+      padding: 13px 47px;
+      border: none;
+      border-radius: 2px;
+      font-weight: 500;
+      &:hover {
+        background: @color-black;
+      }
+    }
     button.action.secondary, button.action.subscribe.primary {
       background: @color-white;
       color: @color-black;
@@ -228,6 +300,22 @@ a.block-promo {
       box-shadow: none;
     }
 
+    .navigation {
+        background: @color-white;
+        width: 515px;
+        float: left;
+        top: -8px;
+        left: 15%;
+      .level0 {
+        &.active {
+          color: @color-alabaster;
+        }
+        a.level-top {
+          text-transform: uppercase;
+          color: @color-black;
+        }
+      }
+    }
     .block-promo-wrapper .block-promo {
       float: left;
     }
@@ -239,16 +327,50 @@ a.block-promo {
       margin: -69px 56px 0 0;
       width: 10px;
     }
+    &.cms-home .page-title-wrapper {
+      display: none;
+    }
+    .hpBanner {
+      position: relative;
+      text-align: right;
+      img {
+        min-width: 100%;
+      }
+      .hpBanner-text {
+        position: absolute;
+        top: 21%;
+        right: 8%;
+        h1 {
+          margin-bottom: 20px;
+          font-size: 5rem;
+          color: @color-white;
+        }
+        h5 {
+          color: @color-white;
+
+        }
+        a {
+          margin-top: 15px;
+        }
+      }
+    }
     .footerContent .footerUl {
       margin-right: 85px;
       float:left;
     }
+    .footerLogo { }
+    .footer .copyright {
+      text-align: center;
+      clear:both;
+      padding-top: 15px;
+    }
+
     footer {
       background: @color-black;
       color: @color-alabaster;
       &.page-footer {
         .footer.content {
-          padding-top: 46px;
+          padding: 30px 40px 15px 40px;
           border-top: none;
           margin-top:0;
           .links li a {
@@ -292,16 +414,14 @@ a.block-promo {
     }
 
     .categories-menu a:link, .categories-menu a:visited, .categories-menu a:hover, .categories-menu a:active, ul > li, ol > li a, .product-item-name > a {
-      //color: @company_color_grey;
+      //color: @color-grey;
     }
     &.catalog-product-view {
       .page-title-wrapper span {
       }
-      .product-info-price {
-      }
+      .product-info-price {  }
       .product #product.info.description {
-        p {
-        }
+        p {  }
       }
       .related {
         .product {
@@ -351,15 +471,67 @@ a.block-promo {
       height: 42px;
       font-size: 15px;
     }
+    .hpBanner {
+      text-align: center;
+      .hpBanner-text {
+        position: absolute;
+        top: 9%;
+        h1 {
+          margin-bottom: 0px;
+          font-size: 3rem;
+        }
+        h5 {
+          font-size: 1.5rem;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        a {
+          margin-top: 5px;
+          padding: 9px 35px;
+        }
+      }
+    }
+    header, footer {
+      .navigation {
+        li {
+        }
+      }
+    }
+    .logo {
+      margin: -8px auto 25px 25%;
+    }
+    .navigation {
+        background: none;
+        width: 100%;
+      .level0 {
+        a.level-top {
+
+        }
+        &:last-child {
+        }
+        ul {
+          .submenu {
+            a {
+            }
+          }
+          .ui-menu-item > a {
+          }
+          a.level-top {
+            &:hover {
+
+            }
+          }
+        }
+      }
+    }
     .middleBlock .content {
-      color: #ffffff;
+      color: @color-white;
       font-weight: 900;
       top: 10px;
     }
     .block-promo-wrapper .block-promo {
       text-align: center;
     }
-
   }
 }
   // Tablet
@@ -390,6 +562,25 @@ a.block-promo {
     input[type="text"], input[type="password"], input[type="url"], input[type="tel"], input[type="search"], input[type="number"], input[type="datetime"], input[type="email"] {
       height: 42px;
     }
+
+    .navigation {
+      left: 2%;
+      .level0 {
+        margin-right: 0;
+        & > .level-top, .submenu a {
+        }
+      }
+      li.level-top {
+
+        &:hover {
+          a.level-top {
+          }
+        }
+      }
+    }
+    .navigation {
+      li {  }
+    }
     .block-promo {
       width: 100%;
     }
@@ -399,13 +590,45 @@ a.block-promo {
 // Only in Desktop
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
   body {
+    p { }
+    h1 { }
+    .logo {
+      margin: -8px auto 25px 4%;
+    }
+    .page-main {
+      padding-right: 0;
+      padding-left: 0;
+      width: 1280px;
+    }
     .minicart-wrapper {
       top: -28px;
+    }
+    .navigation {
+      left: 7%;
+      .level0 {
+        & > .level-top, .submenu a {  }
+        .submenu a:hover {  }
+        & > .level-top {  }
+      }
+      li.level-top {
+
+        &:hover {
+          a.level-top {  }
+        }
+      }
     }
   }
 }
 
+
 @media (min-width: 768px) {
+  body .logo {
+    margin: -8px auto 25px 40%;
+  }
+  .navigation, .breadcrumbs, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main {
+    max-width: 100% !important;
+  }
+
   a.home-top-left, .home-bottom-left {
     margin-right: 2%;
   }
@@ -419,11 +642,23 @@ a.block-promo {
     }
   }
 }
+@media (max-width: 1024px) {
+  body .block-search .label {
+    margin: -1px 20px 0 0;
+  }
+  body .navigation {
+    background: #f5f5f5;
+    width: 100%;
+  }
+}
 
 body {
   //Correction of blank responsive styling
   .checkout-shipping-method .actions-toolbar > .primary {
     float: none;
+  }
+  .checkout-payment-method .payment-methods {
+    //margin: 0;
   }
 
   //Sport Dog Color Override of Magento Colors in default
@@ -431,7 +666,13 @@ body {
   .review-field-rating .review-control-vote:before {
     content: '\e605' '\e605' '\e605' '\e605' '\e605';
   }
-
+  .minicart-wrapper .action.showcart .counter.qty {
+    background: @color-alabaster;
+  }
+  .navigation .level0.active > .level-top, .navigation .level0.has-active > .level-top, .navigation .level0.active > a:not(.ui-state-active),
+  .navigation .level0.has-active > a:not(.ui-state-active) {
+    border-color: @color-alabaster;
+  }
   .fotorama__thumb-border {
     border: 1px solid @color-alabaster;
   }
@@ -442,9 +683,13 @@ body {
   .fieldset > .fields > .field._required > .label:after {
     color: @color-alabaster;
   }
-
+  .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before {
+    background: @color-alabaster !important;
+    border-color: @color-alabaster !important;
+  }
   .abs-action-remove, .abs-discount-block .action.check, .popup .actions-toolbar .action.cancel, .paypal-button-widget .paypal-button,
-  .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .action.help.map, .checkout-index-index .modal-popup .modal-footer .action-hide-popup, .opc-wrapper .edit-address-link,
+  .bundle-options-container .action.back, .block.related .action.select, .cart.table-wrapper .actions-toolbar > .action-delete,
+  .cart.table-wrapper .action.help.map, .checkout-index-index .modal-popup .modal-footer .action-hide-popup, .opc-wrapper .edit-address-link,
   .opc-block-shipping-information .shipping-information-title .action-edit, .action-auth-toggle,
   .checkout-payment-method .checkout-billing-address .action-cancel, .checkout-agreements-block .action-show,
   .gift-options .actions-toolbar .action-cancel, .gift-summary .action-edit, .gift-summary .action-delete, .action-gift,
@@ -465,6 +710,21 @@ body {
 }
 
     //Default styling overrides
+body {
+
+  //Checkout
+  .opc-wrapper .step-title, .opc-block-shipping-information .shipping-information-title, .checkout-agreements-items .checkout-agreements-item-title, .opc-progress-bar-item._complete > span {
+    color: @color-alabaster;
+  }
+  .opc-progress-bar-item._active > span {
+    color: @color-alabaster;
+  }
+  .opc-block-summary > .title {
+    color: @color-alabaster;
+  }
+
+}
+//end Checkout
 
 //Product tab info
 .product.data.items > .item.title > .switch {
@@ -484,6 +744,52 @@ body {
 }
 //end Product tab info
 
+.content-heading {
+  &:before {
+    //position: relative;
+    //top: 0;
+    //margin-top: 50px;
+    //margin-bottom: 20px;
+  }
+  .title {
+    //margin: 0 0 20px;
+  }
+}
+.action.primary {
+  //padding: 8px 15px;
+}
+a.action.tocompare {
+  //display: none !important;
+}
+//Removing items via Display None.  Eventually use XML
+.product-reviews-summary, .sidebar-additional .block-compare {
+  //display: none;
+}
+
+.breadcrumbs a, .breadcrumbs a:visited {
+  //color: ;
+}
+.minicart-wrapper .action.showcart:before {
+  color: @color-alabaster;
+}
+
+.block-promo .title {
+  //font-weight: 400;
+}
+a.action.compare:before {
+  //display:none;
+}
+
+.navigation .level0 .submenu {
+  //background: ;
+  //border: none;
+}
+.products-grid .product-item-info:hover, .products-grid .product-item-info.active {
+  //background: #c2c2c2;
+}
+.nav-sections {
+  //background: ;
+}
 a.nav-sections-item-switch {
   color: @color-alabaster;
 }

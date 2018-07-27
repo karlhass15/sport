@@ -109,15 +109,7 @@ body .block.newsletter {
   }
 }
 
-body .page-wrapper > .page-bottom {
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
-  background: @color-boulder;
-}
+
 
 
 a.block-promo {
@@ -354,6 +346,17 @@ a.block-promo {
         }
       }
     }
+    .page-wrapper > .page-bottom {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+    }
+    .cms-home .page-wrapper > .page-bottom {
+      background: @color-boulder;
+    }
     .footerContent .footerUl {
       margin-right: 85px;
       float:left;
@@ -413,16 +416,64 @@ a.block-promo {
       }
     }
 
+    .product.data.items>.item.title.active>.switch:after {
+      content: '\f077';
+      font-family: FontAwesome;
+      position: absolute;
+      right: 20px;
+    }
+    .product.data.items>.item.title>.switch:after {
+      content: '\f078';
+      font-family: FontAwesome;
+      position: absolute;
+      right: 20px;
+    }
+    .product.data.items>.item.title>.switch {
+      position: relative;
+      background: #f0f0f0!important;
+    }
+
+    //Product Page Hide Unwanted Elements
+    .fotorama__nav-wrap.fotorama__nav-wrap--horizontal, .fotorama__caption {
+      display:none !important;
+    }
+    //end //
+
+    .image-info {
+      clear:both;
+      padding:  0 0 40px 0;
+    }
+    .product-info-main .page-title-wrapper .page-title {
+      margin-top: 0;
+    }
+
     .categories-menu a:link, .categories-menu a:visited, .categories-menu a:hover, .categories-menu a:active, ul > li, ol > li a, .product-item-name > a {
       //color: @color-grey;
     }
     &.catalog-product-view {
-      .page-title-wrapper span {
+      .page-main {
+      }
+      .header.content {
+        background: #d8d8d8;
+        .navigation {
+          background: #d8d8d8;
+        }
+      }
+
+      .page-title-wrapper  {
+        border-bottom: 2px solid @color-gray90;
+        margin-bottom: 15px;
+        h1 {
+          font-size: 35px;
+          font-weight: 900;
+
+        }
       }
       .product-info-price {  }
       .product #product.info.description {
         p {  }
       }
+
       .related {
         .product {
           a {
@@ -431,6 +482,7 @@ a.block-promo {
           }
         }
       }
+
     }
     &.page-products {
       .product-item-info {
@@ -616,6 +668,9 @@ a.block-promo {
           a.level-top {  }
         }
       }
+    }
+    .product-info-main {
+      padding-top: 100px;
     }
   }
 }

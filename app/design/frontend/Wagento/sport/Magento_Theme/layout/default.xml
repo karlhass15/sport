@@ -23,7 +23,23 @@
         </arguments>
     </referenceBlock>
 
+    <referenceContainer name="header.panel">
+        <container name="HP-top-promo" htmlTag="div" htmlClass="top-promo" before="skip_to_content">
+            <block class="Magento\Cms\Block\Block" name="HP_top_promo">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">HP_top_promo</argument>
+                </arguments>
+            </block>
+        </container>
+    </referenceContainer>
+
+
     <body>
+
+
+
+
+
         <referenceContainer name="footer">
             <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
                 <block class="Magento\Cms\Block\Block" name="footer_links_block">

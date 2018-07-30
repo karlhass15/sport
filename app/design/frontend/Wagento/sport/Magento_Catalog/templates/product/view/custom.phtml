@@ -1,0 +1,13 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View\Attributes*/
+
+/*$_product = $block->getProduct();
+$value = $_product->getResource()->getAttribute('product_image_info')->getFrontend()->getValue($_product); //atttribute value
+$lable = $_product->getResource()->getAttribute('product_image_info')->getStoreLabel(); //attribute lable
+
+echo $value.' : '.$lable;*/
+
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$value = $_product->getResource()->getAttribute('product_image_info')->getFrontend()->getValue($_product); //atttribute value
+echo $_helper->productAttribute($_product, $value,'product_image_info');

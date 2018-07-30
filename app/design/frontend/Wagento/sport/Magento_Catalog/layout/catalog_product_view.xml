@@ -12,7 +12,6 @@
     <update handle="catalog_product_opengraph" />
     <update handle="page_calendar"/>
     <body>
-
         <container name="product-rivet-block" htmlTag="div" htmlClass="prod-col-one" before="product.info.main">
             <block class="Magento\Cms\Block\Block" name="product_rivet_block">
                 <arguments>
@@ -20,7 +19,21 @@
                 </arguments>
             </block>
         </container>
-        <move element="product-rivet-block" destination="columns.top" before="page.main.title"/>
+        <move element="product-rivet-block" destination="page.bottom.container" before="-"/>
 
+        <container name="product-image-info" htmlTag="div" htmlClass="image-info" >
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="custom.sec" as="customsec" template="product/view/custom.phtml" />
+        </container>
+        <move element="product-image-info" destination="content" after="product.info.media" />
+
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.overview" destination="product.info.main" after="page.main.title"/>
+
+        <referenceBlock name="product.info.mailto" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true"/>
+        <referenceBlock name="view.addto.wishlist" remove="true"/>
+        <referenceBlock name="product.info.sku"  remove="true"/>
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
     </body>
 </page>

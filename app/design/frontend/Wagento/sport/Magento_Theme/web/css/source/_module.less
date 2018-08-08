@@ -304,6 +304,7 @@
         .lib-vendor-prefix-display(flex);
         .lib-vendor-prefix-flex-direction(column);
         min-height: 100%; // Stretch content area for sticky footer
+        padding-top: 161px;
 
         > .breadcrumbs,
         > .top-container,
@@ -359,6 +360,15 @@
     .page-header {
         border: 0;
         margin-bottom: 0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+        -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.16);
+        -moz-box-shadow: 0 2px 5px rgba(0,0,0,.16);
+        box-shadow: 0 2px 5px rgba(0,0,0,.16);
+        background: @color-white;
 
         .panel.wrapper {
             border-bottom: 1px solid @secondary__color;

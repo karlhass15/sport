@@ -49,5 +49,6 @@
                 </block>
             </container>
         </referenceContainer>
+        <referenceBlock name="sale.reorder.sidebar" remove="true"/>
     </body>
 </page>

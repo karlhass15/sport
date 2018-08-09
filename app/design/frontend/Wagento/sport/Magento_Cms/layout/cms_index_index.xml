@@ -14,7 +14,7 @@
                 </arguments>
             </block>
         </container>
-        <move element="hp-banner" destination="header.container" after="-"/>
+        <move element="hp-banner" destination="main" before="-"/>
 
         <container name="top-blocks-hp" htmlClass="topBlocksHp" htmlTag="div">
             <block class="Magento\Cms\Block\Block" name="top_blocks_hp">
@@ -61,7 +61,7 @@
                 </arguments>
             </block>
         </container>
-        <move element="rivit-works-banner-hp" destination="main" after="bottom-blocks-hp"/>
+        <move element="rivit-works-banner-hp" destination="main" after="hp-banner"/>
 
         <container name="preFooter" htmlClass="preFooter" htmlTag="div">
             <block class="Magento\Cms\Block\Block" name="pre_footer">

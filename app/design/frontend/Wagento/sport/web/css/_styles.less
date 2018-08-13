@@ -39,25 +39,25 @@ body .page-header .header.panel {
 }
 
 body .minicart-wrapper .action.showcart {
-   .counter.qty {
-     background: #7b7b7b;
-     height: auto;
-     font-size: 13px;
-     padding: 0 2px;
-     left: 17px;
-     bottom: 16px;
-     position: absolute;
-     z-index: -1;
-   }
-   &:before {
-     color: @color-black;
-   }
-   .opc-estimated-wrapper .counter.qty {
-     padding: 0 2px;
-     left: 33px;
-     bottom: 20px;
-   }
- }
+  .counter.qty {
+    background: #7b7b7b;
+    height: auto;
+    font-size: 13px;
+    padding: 0 2px;
+    left: 17px;
+    bottom: 16px;
+    position: absolute;
+    z-index: -1;
+  }
+  &:before {
+    color: @color-black;
+  }
+  .opc-estimated-wrapper .counter.qty {
+    padding: 0 2px;
+    left: 33px;
+    bottom: 20px;
+  }
+}
 
 .checkout-index-index {
   .header.panel > .header.links > li.authorization-link, .minicart-wrapper, .block-search .label  {
@@ -75,25 +75,25 @@ body .minicart-wrapper .action.showcart {
   padding: 20px 0 30px;
 }
 
-  body .footerContent {
-    h5, .block .title strong {
-      font-size: 20px;
-      color: @color-white;
-      margin-bottom: 10px;
-    }
-    ul {
-      padding-bottom: 15px;
-      font-size: 20px;
+body .footerContent {
+  h5, .block .title strong {
+    font-size: 20px;
+    color: @color-white;
+    margin-bottom: 10px;
+  }
+  ul {
+    padding-bottom: 15px;
+    font-size: 20px;
 
-      li a{
-        list-style: none;
-        color: @color-alabaster;
-        text-transform: uppercase;
-        font-size: 12px;
-        text-decoration: none;
-      }
+    li a{
+      list-style: none;
+      color: @color-alabaster;
+      text-transform: uppercase;
+      font-size: 12px;
+      text-decoration: none;
     }
   }
+}
 
 footer .footer.content ul > li {
   margin-bottom: 15px;
@@ -109,7 +109,15 @@ body .block.newsletter {
   }
 }
 
-
+body .page-wrapper > .page-bottom {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  background: @color-boulder;
+}
 
 
 a.block-promo {
@@ -291,13 +299,27 @@ a.block-promo {
       border: 1px solid @color-steel-grey;
       box-shadow: none;
     }
+    .nav-toggle {
+      font-size: 20px;
+      p.menuText {
+        display: inline-block;
+        margin-left: 30%;
+        margin-top: 18%;
+        position: absolute;
+        color: #8f8f8f;
+        &:hover {
+          color: @color-black;
+        }
+      }
+    }
+
 
     .navigation {
-        background: @color-white;
-        width: 515px;
-        float: left;
-        top: -8px;
-        left: 15%;
+      background: @color-white;
+      width: 515px;
+      float: left;
+      top: -8px;
+      left: 15%;
       .level0 {
         &.active {
           color: @color-alabaster;
@@ -316,7 +338,7 @@ a.block-promo {
       border-top: none;
     }
     .block-search .label {
-      margin: -69px 56px 0 0;
+      margin: -69px 71px 0 0;
       width: 10px;
     }
     &.cms-home .page-title-wrapper {
@@ -328,10 +350,13 @@ a.block-promo {
       img {
         min-width: 100%;
       }
+
       .hpBanner-text {
         position: absolute;
-        top: 12%;
+        top: 21%;
         right: 8%;
+        background: #80808047;
+        padding: 10px;
         h1 {
           margin-bottom: 20px;
           font-size: 5rem;
@@ -346,22 +371,10 @@ a.block-promo {
         }
       }
     }
-    .page-wrapper > .page-bottom {
-      margin-left: 0;
-      margin-right: 0;
-      max-width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-      width: 100%;
-    }
-    .cms-home .page-wrapper > .page-bottom {
-      background: @color-boulder;
-    }
     .footerContent .footerUl {
-      margin-right: 85px;
+      margin-right: 75px;
       float:left;
     }
-    .footerLogo { }
     .footer .copyright {
       text-align: center;
       clear:both;
@@ -372,8 +385,9 @@ a.block-promo {
       background: @color-black;
       color: @color-alabaster;
       &.page-footer {
+        overflow: auto;
         .footer.content {
-          padding: 30px 40px 15px 40px;
+          padding: 30px 40px 15px 80px;
           border-top: none;
           margin-top:0;
           .links li a {
@@ -405,66 +419,39 @@ a.block-promo {
               display: none;
             }
           }
-          .socialLinks li {
-            display: inline-block;
-            padding-right: 30px;
-            a {
-              font-size: 30px;
+          .socialLinks {
+            li {
+              display: inline-block;
+              padding-right: 10px;
+              a {
+                font-size: 30px;
+              }
             }
           }
         }
+
       }
-    }
 
-    .product.data.items>.item.title.active>.switch:after {
-      content: '\f077';
-      font-family: FontAwesome;
-      position: absolute;
-      right: 20px;
     }
-    .product.data.items>.item.title>.switch:after {
-      content: '\f078';
-      font-family: FontAwesome;
-      position: absolute;
-      right: 20px;
-    }
-    .product.data.items>.item.title>.switch {
-      position: relative;
-      background: #f0f0f0!important;
-    }
-
-    //Product Page Hide Unwanted Elements
-    .fotorama__nav-wrap.fotorama__nav-wrap--horizontal, .fotorama__caption {
-      display:none !important;
-    }
-    //end //
-
-    .image-info {
-      clear:both;
-      padding:  0 0 40px 0;
-    }
-    .product-info-main .page-title-wrapper .page-title {
-      margin-top: 0;
+    small.copyright {
+      min-width: 100%;
+      float: left;
+      text-align: center;
+      background: white;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     .categories-menu a:link, .categories-menu a:visited, .categories-menu a:hover, .categories-menu a:active, ul > li, ol > li a, .product-item-name > a {
       //color: @color-grey;
     }
     &.catalog-product-view {
-      .page-title-wrapper  {
-        border-bottom: 2px solid @color-gray90;
-        margin-bottom: 15px;
-        h1 {
-          font-size: 35px;
-          font-weight: 900;
-
-        }
+      .page-title-wrapper span {
       }
       .product-info-price {  }
       .product #product.info.description {
         p {  }
       }
-
       .related {
         .product {
           a {
@@ -473,7 +460,6 @@ a.block-promo {
           }
         }
       }
-
     }
     &.page-products {
       .product-item-info {
@@ -514,13 +500,16 @@ a.block-promo {
       height: 42px;
       font-size: 15px;
     }
+    .top-promo p {
+      display: none;
+    }
     .hpBanner {
       text-align: center;
       .hpBanner-text {
         position: absolute;
-        top: 4%;
+        top: 9%;
         h1 {
-          margin-bottom: 0px;
+          margin-bottom: 0;
           font-size: 3rem;
         }
         h5 {
@@ -534,18 +523,19 @@ a.block-promo {
         }
       }
     }
-    header, footer {
-      .navigation {
-        li {
+    footer {
+      &.page-footer {
+        .footer.content {
+          padding: 30px 40px 15px 40px;
         }
       }
     }
     .logo {
-      margin: -8px auto 25px 25%;
+      margin: 0 auto 25px 28%;
     }
     .navigation {
-        background: none;
-        width: 100%;
+      background: none;
+      width: 100%;
       .level0 {
         a.level-top {
 
@@ -577,7 +567,7 @@ a.block-promo {
     }
   }
 }
-  // Tablet
+// Tablet
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
   body {
     h1 {
@@ -647,7 +637,7 @@ a.block-promo {
       top: -28px;
     }
     .navigation {
-      left: 7%;
+      left: 2%;
       .level0 {
         & > .level-top, .submenu a {  }
         .submenu a:hover {  }
@@ -659,9 +649,6 @@ a.block-promo {
           a.level-top {  }
         }
       }
-    }
-    .product-info-main {
-      padding-top: 100px;
     }
   }
 }
@@ -755,7 +742,7 @@ body {
   }
 }
 
-    //Default styling overrides
+//Default styling overrides
 body {
 
   //Checkout
@@ -841,26 +828,4 @@ a.nav-sections-item-switch {
 }
 .filter-options-title:hover {
   color: @color-alabaster;
-}
-.payment-method-subscribe_pro {
-  .payment-method-content .fieldset > .field.type .control {
-    margin-left: 0px!important;
-  }
-  .opc-wrapper .fieldset > .field.required > label {
-    text-align: left!important;
-    margin-bottom: 7px!important;
-    font-weight: bold!important;
-  }
-  .fieldset > .field.required > label {
-    text-align: left!important;
-    margin-bottom: 7px!important;
-    font-weight: bold!important;
-  }
-  .field.date input {
-    min-width: 60px!important;
-  }
-  .fieldset > .field:not(.choice) > .control {
-    clear: both!important;
-  }
-
 }

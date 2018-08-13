@@ -34,21 +34,16 @@
     </referenceContainer>
 
 
-    <body>
+    <referenceContainer name="footer">
+        <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
+            <block class="Magento\Cms\Block\Block" name="footer_links_block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_links_block</argument>
+                </arguments>
+            </block>
+        </container>
+    </referenceContainer>
+    <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+    <move element="copyright" destination="before.body.end"  before="-" />
 
-
-
-
-
-        <referenceContainer name="footer">
-            <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
-                <block class="Magento\Cms\Block\Block" name="footer_links_block">
-                    <arguments>
-                        <argument name="block_id" xsi:type="string">footer_links_block</argument>
-                    </arguments>
-                </block>
-            </container>
-        </referenceContainer>
-        <referenceBlock name="sale.reorder.sidebar" remove="true"/>
-    </body>
 </page>

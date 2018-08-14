@@ -15,14 +15,38 @@
         "amasty": {
             "type": "composer",
             "url": "https://composer.amasty.com/enterprise/"
+        },
+        "rewards": {
+            "type": "package",
+            "package": {
+                "name": "loyaltylion/core",
+                "description": "LoyaltyLion - Loyalty Program",
+                "type": "magento2-module",
+                "version": "1.0.3",
+                "autoload": {
+                    "psr-4": {
+                        "Loyaltylion\\Core\\": ""
+                    },
+                    "files": [
+                        "registration.php"
+                    ]
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://s3-eu-west-1.amazonaws.com/loyaltylion-static/magento2/magento2-master.zip",
+                    "reference": "master"
+                }
+            }
         }
+
     },
     "require": {
         "magento/magento-cloud-metapackage": ">=2.2.4 <2.2.5",
         "fastly/magento2": "^1.2",
         "gene/bluefoot": "^1.0",
         "subscribepro/subscribepro-magento2-ext": "^1.1",
-        "amasty/module-special-promo-pro": "^2.4"
+        "amasty/module-special-promo-pro": "^2.4",
+        "loyaltylion/core": "1.0.3"
     },
     "config": {
         "use-include-path": true

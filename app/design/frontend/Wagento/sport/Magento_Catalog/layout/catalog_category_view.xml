@@ -17,6 +17,11 @@
         <referenceBlock name="catalog.leftnav" remove="true" />
 
         <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="customizable-block" before="rivit-works-banner-hp">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">customizable-block</argument>
+                </arguments>
+            </block>
             <container name="rivit-works-banner-hp" htmlClass="rivitBanner" htmlTag="div">
                 <block class="Magento\Cms\Block\Block" name="rivit_works_banner_hp">
                     <arguments>
@@ -24,9 +29,9 @@
                     </arguments>
                 </block>
             </container>
-            <block class="Magento\Cms\Block\Block" name="customizable-block">
+            <block class="Magento\Cms\Block\Block" name="customizable-block-second" after="rivit-works-banner-hp">
                 <arguments>
-                    <argument name="block_id" xsi:type="string">customizable-block</argument>
+                    <argument name="block_id" xsi:type="string">customizable-block-second</argument>
                 </arguments>
             </block>
         </referenceContainer>

@@ -22,7 +22,7 @@
 !/update
 !/update/.htaccess
 !/README.md
-!/composer.lock
+
 !/.docker
 !/.docker/**
 !/docker-compose.yml

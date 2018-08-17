@@ -37,6 +37,10 @@
                     "reference": "master"
                 }
             }
+        },
+        "plumrocket": {
+            "type": "composer",
+            "url": "https://store.plumrocket.com/repo/"
         }
 
     },
@@ -46,7 +50,9 @@
         "gene/bluefoot": "^1.0",
         "subscribepro/subscribepro-magento2-ext": "^1.1",
         "amasty/module-special-promo-pro": "^2.4",
-        "loyaltylion/core": "1.0.3"
+        "loyaltylion/core": "1.0.3",
+        "plumrocket/module-estimateddelivery": "^2.1",
+        "plumrocket/module-psloginpro": "^2.4"
     },
     "config": {
         "use-include-path": true

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "41c85ef935f2f0d5d4b310cee17838ae",
-    "content-hash": "853acd2fdf46d59b8c727b0643b682a2",
+    "hash": "4ab9d08829bf3427167365abdcf051dc",
+    "content-hash": "175fcf96402a04672111f91338d51a7a",
     "packages": [
         {
             "name": "amasty/base",
@@ -1793,7 +1793,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://s3-eu-west-1.amazonaws.com/loyaltylion-static/magento2/magento2-master.zip",
-                "reference": "master",
+                "reference": null,
                 "shasum": null
             },
             "type": "magento2-module",
@@ -10939,6 +10939,74 @@
                 "x509"
             ],
             "time": "2018-04-15 16:55:05"
+        },
+        {
+            "name": "plumrocket/module-estimateddelivery",
+            "version": "2.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://store.plumrocket.com/repo/download/newLink/id/MC4wODM5NDMwMCAxNTM0MjQ4NDg2MTUxMjIxODczODk5/link_id/660/",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": "~5.6.5 || >=7.0",
+                "plumrocket/module-plumbase": "2.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Plumrocket\\Estimateddelivery\\": ""
+                }
+            },
+            "description": "N/A"
+        },
+        {
+            "name": "plumrocket/module-plumbase",
+            "version": "2.0.12",
+            "dist": {
+                "type": "zip",
+                "url": "https://store.plumrocket.com/repo/download/free/link_id/716/",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Plumrocket\\Base\\": ""
+                }
+            },
+            "description": "N/A"
+        },
+        {
+            "name": "plumrocket/module-psloginpro",
+            "version": "2.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://store.plumrocket.com/repo/download/newLink/id/MC4wNzc0MDAwMCAxNTI1ODg0ODE2MTM5OTExNzQwMzk0/link_id/766/",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "php": "~5.6.5 || >=7.0",
+                "plumrocket/module-plumbase": "2.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Plumrocket\\SocialLoginPro\\": ""
+                }
+            },
+            "description": "N/A"
         },
         {
             "name": "psr/container",

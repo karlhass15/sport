@@ -311,8 +311,6 @@ a.block-promo {
         }
       }
     }
-
-
     .navigation {
       background: @color-white;
       width: 515px;
@@ -332,7 +330,6 @@ a.block-promo {
     .block-promo-wrapper .block-promo {
       float: left;
     }
-
     .block-search .control {
       border-top: none;
     }
@@ -370,9 +367,15 @@ a.block-promo {
         }
       }
     }
-    .footerContent .footerUl {
-      margin-right: 75px;
-      float:left;
+    .footerContent {
+      text-align: center;
+      margin: 0;
+      .footerUl {
+        margin-right: 90px;
+        text-align: left;
+        display: inline-block;
+        vertical-align: top;
+      }
     }
     .footer .copyright {
       text-align: center;
@@ -428,9 +431,7 @@ a.block-promo {
             }
           }
         }
-
       }
-
     }
     small.copyright {
       min-width: 100%;
@@ -439,6 +440,24 @@ a.block-promo {
       background: white;
       padding-top: 10px;
       padding-bottom: 10px;
+    }
+    .legalBlock {
+      text-align: right;
+      margin-right: 6%;
+      margin-top: -36px;
+      .footerContent {
+        ul {
+          padding-bottom: 0;
+          margin-bottom: 0;
+          text-align: right;
+          li {
+            list-style: none;
+            display: inline-block;
+            padding-right: 8px;
+          }
+        }
+      }
+
     }
 
     .categories-menu a:link, .categories-menu a:visited, .categories-menu a:hover, .categories-menu a:active, ul > li, ol > li a, .product-item-name > a {
@@ -528,10 +547,14 @@ a.block-promo {
           padding: 30px 40px 15px 40px;
         }
       }
+      .footerContent {
+        .footerUl {
+          width: 100%;
+        }
+      }
+
     }
-    .logo {
-      margin: 0 auto 25px 28%;
-    }
+
     .navigation {
       background: none;
       width: 100%;
@@ -681,6 +704,18 @@ a.block-promo {
   body .navigation {
     background: #f5f5f5;
     width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+
+  body .legalBlock {
+    text-align: center;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  body .legalBlock .footerContent ul {
+    padding-left: 0;
+    text-align: center;
   }
 }
 

@@ -32,7 +32,7 @@
                     </script>
 
                     <div class="control" data-bind="scope: 'qty_change'">
-                        <button data-bind="click: decreaseQty">-</button>
+                        <button class="qty-decrease" data-bind="click: decreaseQty">-</button>
                         <input  data-bind="value: qty()"
                                 type="number"
                                 name="qty"
@@ -43,7 +43,7 @@
                                 data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
                         />
 
-                        <button data-bind="click: increaseQty">+</button>
+                        <button class="qty-increase" data-bind="click: increaseQty">+</button>
                     </div>
                 </div>
             <?php endif; ?>

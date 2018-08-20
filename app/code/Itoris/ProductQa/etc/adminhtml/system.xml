@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="itoris_extensions" translate="label" sortOrder="101">
+            <label>ITORIS Extensions</label>
+        </tab>
+        <section id="itoris_productqa" translate="label" type="text" sortOrder="202" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Product Questions/Answers</label>
+            <tab>itoris_extensions</tab>
+            <resource>Itoris_ProductQa::config_qa</resource>
+            <group id="general"  translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extension Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="visible" translate="label comment" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module is visible for</label>
+                    <source_model>Itoris\ProductQa\Model\Source\VisibleConfig</source_model>
+                </field>
+                <field id="visitor_post" translate="label comment" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Visitors can post</label>
+                    <source_model>Itoris\ProductQa\Model\Source\VisitorPost</source_model>
+                </field>
+                <field id="visitor_can_rate" translate="label comment" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Visitors can rate</label>
+                    <source_model>Itoris\ProductQa\Model\Source\VisitorCanRate</source_model>
+                </field>
+                <field id="captcha" translate="label comment" type="select" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show Captcha image for visitors </label>
+                    <frontend_model>Itoris\ProductQa\Model\Source\System</frontend_model>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="questions_approval" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Questions approval</label>
+                    <source_model>Itoris\ProductQa\Model\Source\QuestionsApproval</source_model>
+                </field>
+                <field id="answers_approval" translate="label comment" type="select" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Answers approval</label>
+                    <source_model>Itoris\ProductQa\Model\Source\AnswersApproval</source_model>
+                </field>
+                <field id="question_length" translate="label comment" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum question length</label>
+                </field>
+                <field id="answer_length" translate="label comment" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum answer length</label>
+                </field>
+                <field id="questions_per_page" translate="label comment" type="text" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Questions per page</label>
+                    <comment>Set the number of questions per page. 0 - no pager, all questions on the same page</comment>
+                </field>
+                <field id="admin_email" translate="label comment" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Administrator Email</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="allow_subscribing_question" translate="label comment" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow subscribing to questions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="question_all_storeviews" translate="label comment" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto assign new questions to all store-views</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="email_config"  translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Settings</label>
+                <field id="email_admin_sender" translate="label"  type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Admin Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template_admin_notification" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin Email Notification Template</label>
+                    <source_model>Itoris\ProductQa\Model\Source\TemplateAdminNotification</source_model>
+                </field>
+                <field id="email_user_sender" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Email User Sender </label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template_user_notification" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Email Notification Template</label>
+                    <source_model>Itoris\ProductQa\Model\Source\TemplateUserNotification</source_model>
+                </field>
+                <field id="email_guest_sender" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Guest Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template_guest_notification" translate="label comment" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Guest Email Notification Template</label>
+                    <source_model>Itoris\ProductQa\Model\Source\TemplateGuestNotification</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

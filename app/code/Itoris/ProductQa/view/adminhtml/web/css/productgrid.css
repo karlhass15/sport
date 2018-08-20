@@ -1,0 +1,6 @@
+.admin__field-complex .admin__field-complex-content{
+    max-width: 100%;
+}
+.admin__fieldset > .admin__field > .admin__field-control{
+    width: 62%;
+}

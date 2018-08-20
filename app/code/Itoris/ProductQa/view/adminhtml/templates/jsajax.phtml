@@ -1,0 +1,129 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php /** @var $block \Itoris\ProductQa\Block\Adminhtml\JsAjax */ ?>
+<?php
+$isProduct =false;
+ if($block->getRequest()->getParam('id')){
+     $isProduct= true;
+     $collection = $this->getObjectManager()->create('Magento\Catalog\Model\ResourceModel\Product\Collection')
+         ->addAttributeToSelect('name')
+         ->addAttributeToSort('name', 'ASC');
+     $collection->getSelect()->where('e.entity_id='.(int)$block->getRequest()->getParam('id'));
+     $product = $collection->getData();
+     $product = array_shift($product);
+ }
+?>
+<div hidden id="itoris-productqa-div" data-exist="1">
+<table    class="data-grid itoris-product-grid" data-empty="1">
+    <thead>
+        <tr><th class="data-grid-th"><?php  echo __('Product Id') ?></th>
+            <th class="data-grid-th"><?php  echo __('Name') ?></th>
+            <th class="data-grid-th"><?php echo __('Sku') ?></th>
+            <th class="data-grid-th"><?php echo __('Action') ?></th>
+        </tr>
+    <tbody>
+    <?php if($isProduct): ?>
+        <tr id="productQA_row_<?php echo $product['entity_id'] ?>"><td>195</td><td><?php echo  $product['name']; ?></td><td><?php echo $product['sku']; ?> <input type="hidden" name="product[]" value="<?php echo $product['entity_id'] ?>"></td><td><span style="color:blue; cursor:pointer" class="itorisqa_product_remove" data-id-tr="<?php $product['entity_id'] ?>">Remove</span></td></tr>
+    <?php endif; ?>
+    </tbody>
+    </thead>
+</table>
+ </div>
+<?php $helperBackend=$this->helper('Magento\Backend\Helper\Data'); ?>
+<script>
+    var qaProductModal;
+    require(['jquery',
+             'jquery/ui',
+             'mage/translate',
+              "mage/mage",
+             'Magento_Ui/js/modal/modal'
+            ],function($){
+
+        <?php if($isProduct): ?>
+        if ($('#itoris-productqa-div').attr('data-exist') == 1) {
+            $('#product_id').val(1);
+            var tableHtml = $('#itoris-productqa-div').html();
+            $('#itoris-productqa-div').attr('data-exist',0);
+            $('#edit_form').append(tableHtml);
+            $('.add_empty_product').hide();
+            $('#itoris-productqa-div #productQA_row_<?php echo $block->getRequest()->getParam('id'); ?>').remove();
+        }
+        <?php endif; ?>
+        $('.itorisqa_product_remove').unbind('click');
+        $('.itorisqa_product_remove').click(function () {
+            if($('#edit_form .itoris-product-grid tbody tr').length==1){
+                $('#edit_form .itoris-product-grid').remove();
+                $('#itoris-productqa-div').attr('data-exist',1);
+                $('#product_id').val('');
+                $('.add_empty_product').show();
+            }
+            $('#productQA_row_' + $(this).attr('data-id-tr')).remove();
+
+        });
+        $('#edit_form').on('click','.itoris_ajax_grid_product',function(){
+           $.ajax({
+                url: '<?php echo $helperBackend->getUrl('itorisproductQa/questions/gridProductQA') ?>'+'form_key/'+window.FORM_KEY,
+                type: "POST",
+                showLoader: true,
+                complete: function (data) {
+                    qaProductModal.html(data.responseText);
+                    qaProductModal.modal('openModal');
+                    $('#itoris_qa_popup .itoris_qa_action').off('click');
+                    $('#itoris_qa_popup').on('click','.itoris_qa_action',function(){
+                        if($('.itoris-product-grid tbody').find('#productQA_row_'+$(this).attr('data-product-id')).length==0) {
+                            qaProductModal.modal('closeModal');
+                            if ($('#itoris-productqa-div').attr('data-exist') == 1) {
+                                $('#product_id').val(1);
+                                var tableHtml = $('#itoris-productqa-div').html();
+                                $('#itoris-productqa-div').attr('data-exist',0);
+                                $('#edit_form').append(tableHtml);
+                                $('.add_empty_product').hide();
+                            }
+                            $('.itoris-product-grid tbody').append('<tr id="productQA_row_' + $(this).attr('data-product-id') + '"><td>' + $(this).attr('data-product-id') + '</td><td>' + $(this).attr('data-product-name') + '</td><td>' + $(this).attr('data-product-sku') + ' <input type="hidden" name=product[] value=' + $(this).attr('data-product-id') + ' /></td><td><span  style = "color:blue; cursor:pointer" class="itorisqa_product_remove" data-id-tr="' + $(this).attr('data-product-id') + '"><?php echo __("Remove"); ?></spann></td></tr>');
+                            $('.itorisqa_product_remove').unbind('click');
+                            $('.itorisqa_product_remove').click(function () {
+                                if($('#edit_form .itoris-product-grid tbody tr').length==1){
+                                    $('#edit_form .itoris-product-grid').remove();
+                                    $('#itoris-productqa-div').attr('data-exist',1);
+                                    $('#product_id').val('');
+                                    $('.add_empty_product').show();
+                                }
+                                $('#productQA_row_' + $(this).attr('data-id-tr')).remove();
+
+                            });
+                        }
+                    });
+                }
+            });
+            qaProductModal=$('#itoris_qa_popup').modal({
+                type: 'slide',
+                buttons: [],
+            });
+        });
+    });
+
+</script>
+<div id="itoris_qa_popup" style="display: none"></div>

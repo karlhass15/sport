@@ -35,7 +35,7 @@
 
 
     <referenceContainer name="footer">
-        <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="copyright">
+        <container name="div.col-one.block" htmlTag="div" htmlClass="footer-col-one" before="-">
             <block class="Magento\Cms\Block\Block" name="footer_links_block">
                 <arguments>
                     <argument name="block_id" xsi:type="string">footer_links_block</argument>
@@ -43,7 +43,19 @@
             </block>
         </container>
     </referenceContainer>
+
+    <container name="legal.block" htmlClass="legalBlock" htmlTag="div"  >
+        <block class="Magento\Cms\Block\Block" name="legal_block">
+            <arguments>
+                <argument name="block_id" xsi:type="string">legal_footer</argument>
+            </arguments>
+        </block>
+    </container>
+    <move element="legal.block" destination="before.body.end"  after="copyright" />
+
     <referenceBlock name="sale.reorder.sidebar" remove="true"/>
     <move element="copyright" destination="before.body.end"  before="-" />
+
+
 
 </page>

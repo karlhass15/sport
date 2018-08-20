@@ -895,3 +895,23 @@
         }
     }
 }
+
+
+& when (@media-target = 'mobile'),
+(@media-target = 'all') {
+    @media all and (max-width: (@screen__1023)) {
+        .box-tocart {
+            .qty {
+                .label span {
+                    display: none;
+                }
+                .control {
+                    .qty-decrease,
+                    .qty-increase {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

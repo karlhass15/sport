@@ -1,0 +1,39 @@
+td.itoris-answer-add{
+    vertical-align: top;
+    padding-right: 5px;
+    text-align: left;
+
+}
+.itoris-table-answer tr td textarea{
+    padding: 5px
+}
+div.entry-edit-head h4,.itoris-h4-answer{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+select.admin__control-multiselect{
+    height:auto;
+    min-height:40px;
+
+}
+.head-edit-form{
+    margin-top: 20px;
+}
+table.form-list tr td{
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-top: 10px;
+}
+.itoris-head-add-answer{
+    font-weight: 600;
+    margin-bottom: 5rem;
+    font-size: 1.8rem;
+}
+.itoris-formqa-label{
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+._required > .admin__field-label span:after{
+    position: static;
+}

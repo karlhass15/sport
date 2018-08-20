@@ -1,0 +1,249 @@
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+
+#row_estimateddelivery_delivery_holidays .grid table.data colgroup col[width="0"],
+#row_estimateddelivery_shipping_holidays .grid table.data colgroup col[width="0"] {
+    display: none;
+}
+
+#row_estimateddelivery_delivery_holidays .grid table.data colgroup col[width="0"],
+#row_estimateddelivery_shipping_holidays .grid table.data colgroup col[width="0"] {
+    display: none;
+}
+
+.dateperiod-hide {
+    display: none;
+}
+
+#row_estimateddelivery_delivery_holidays select[name="groups[delivery][fields][holidays][value][_TMPNAME_][date_type]"],
+#row_estimateddelivery_delivery_holidays select[name="groups[delivery][fields][holidays][value][_TMPNAME_][recurring_date][month]"],
+#row_estimateddelivery_delivery_holidays select[name="groups[delivery][fields][holidays][value][_TMPNAME_][recurring_date][day]"],
+#row_estimateddelivery_delivery_holidays .groups-delivery-fields-holidays-value-_TMPNAME_-recurring_date-text,
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][single_day]"],
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][single_day]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][period][start]"],
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][period][start]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][period][end]"],
+#row_estimateddelivery_delivery_holidays input[name="groups[delivery][fields][holidays][value][_TMPNAME_][period][end]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_delivery_holidays .groups-delivery-fields-holidays-value-_TMPNAME_-remove {
+    display: none;
+}
+
+#row_estimateddelivery_shipping_holidays select[name="groups[shipping][fields][holidays][value][_TMPNAME_][date_type]"],
+#row_estimateddelivery_shipping_holidays select[name="groups[shipping][fields][holidays][value][_TMPNAME_][recurring_date][month]"],
+#row_estimateddelivery_shipping_holidays select[name="groups[shipping][fields][holidays][value][_TMPNAME_][recurring_date][day]"],
+#row_estimateddelivery_shipping_holidays .groups-shipping-fields-holidays-value-_TMPNAME_-recurring_date-text,
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][single_day]"],
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][single_day]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][period][start]"],
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][period][start]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][period][end]"],
+#row_estimateddelivery_shipping_holidays input[name="groups[shipping][fields][holidays][value][_TMPNAME_][period][end]"] + .ui-datepicker-trigger,
+#row_estimateddelivery_shipping_holidays select[name="groups[shipping][fields][holidays][value][_TMPNAME_][date_type]"],
+#row_estimateddelivery_shipping_holidays .groups-shipping-fields-holidays-value-_TMPNAME_-remove {
+    display: none;
+}
+
+#row_estimateddelivery_delivery_holidays table tbody tr,
+#row_estimateddelivery_shipping_holidays table tbody tr {
+    display: none;
+}
+#row_estimateddelivery_delivery_holidays table tbody.loaded tr,
+#row_estimateddelivery_shipping_holidays table tbody.loaded tr {
+    display: table-row;
+}
+
+.dateperiod-type select,
+.dateperiod-type input.input-text {
+    width: 150px !important;
+}
+
+.dateperiod-recurring-date select {
+    width: 110px !important;
+    display: inline-block;
+}
+
+table tr[id^="row_estimateddelivery"] table.data {
+    width: 545px;
+    min-width: 545px;
+}
+
+table tr[id^="row_estimateddelivery"] table.data tr th:first-child {
+    width: 151px;
+}
+
+table tr[id^="row_estimateddelivery"] table.data tr th:last-child {
+    width: 81px;
+}
+
+/* General DataGrid styles */
+#row_estimateddelivery_delivery_holidays .admin__data-grid-wrap,
+#row_estimateddelivery_shipping_holidays .admin__data-grid-wrap {
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
+.form-list #row_estimateddelivery_delivery_default_text td.value,
+#row_estimateddelivery_shipping_time_after_enable td.value {
+    min-width: 590px!important;
+    max-width: 590px!important;
+    width: 590px!important;
+}
+
+table #row_estimateddelivery_delivery_holidays table td,
+table #row_estimateddelivery_shipping_holidays table td {
+    padding: 10px;
+}
+
+table #row_estimateddelivery_delivery_holidays table td input[type='text'],
+table #row_estimateddelivery_shipping_holidays table td input[type='text'] {
+    width: auto;
+    max-width: 130px;
+}
+
+table #row_estimateddelivery_delivery_holidays table td button + button,
+table #row_estimateddelivery_shipping_holidays table td button + button {
+    display: none;
+}
+
+table #row_estimateddelivery_delivery_holidays table td:first-child,
+table #row_estimateddelivery_shipping_holidays table td:first-child {
+    width: 185px;
+}
+
+table #row_estimateddelivery_delivery_holidays table td:last-child,
+table #row_estimateddelivery_shipping_holidays table td:last-child {
+    width: 110px;
+}
+
+table #row_estimateddelivery_delivery_holidays table td:first-child select,
+table #row_estimateddelivery_shipping_holidays table td:first-child select {
+    width: 100%!important;
+}
+
+table #row_estimateddelivery_delivery_holidays td select.dateperiod-month,
+table #row_estimateddelivery_shipping_holidays td select.dateperiod-month {
+    width: 132px!important;
+}
+
+#estimateddelivery_delivery select,
+#estimateddelivery_shipping select {
+    max-width: 450px;
+}
+
+#category_info_tabs_group_60_content .entry-edit > .fieldset {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+
+
+
+
+
+/*=== category page ===*/
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .admin__control-grouped,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .admin__control-grouped {
+	width: 320px;
+}
+
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .admin__field-control .admin__field,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .admin__field-control .admin__field {
+	width: 50%;
+}
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .admin__control-grouped .admin__field .admin__field-control,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .admin__control-grouped .admin__field .admin__field-control {
+	width: 150px;
+	position: relative;
+    padding-bottom: 55px;
+}
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .admin__control-grouped .admin__field .admin__field-control input,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .admin__control-grouped .admin__field .admin__field-control input {
+	width: 100%;
+}
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .delivery_est_del,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .shipping_est_del {
+	position: absolute;
+	right: -17px;
+	top: 5px;
+}
+body[class^='catalog-category-'] .admin__field[data-index="estimated_delivery_days_group"] .admin__field-control .admin__field-note,
+body[class^='catalog-category-'] .admin__field[data-index="estimated_shipping_days_group"] .admin__field-control .admin__field-note {
+	position: absolute;
+	width: 320px;
+	top: 30px;
+	left: 0;
+}
+
+/*=== product page ===*/
+body[class^='catalog-product-'] .fieldset-wrapper[data-index="estimated-delivery-shipping"] .admin__fieldset {
+	position: relative;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_from"] .admin__field-control,
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_days_from"] .admin__field-control {
+	width: 112px;
+	position: relative;
+    padding-bottom: 55px;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_from"] .admin__field-control .delivery_est_del,
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_days_from"] .admin__field-control .shipping_est_del {
+	position: absolute;
+    right: -20px;
+    top: 5px;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_from"] .admin__field-control .admin__field-note,
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_days_from"] .admin__field-control .admin__field-note {
+    position: absolute;
+    width: 320px;
+	top: 30px;
+	left: 0;
+}
+
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_to"],
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_days_to"] {
+    width: 112px;
+    position: absolute;
+    top: 77px;
+    left: calc( (100%) * .25 - 30px );
+    margin-left: 176px;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_to"] {
+    top: auto;
+    bottom: 85px;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_days_to"] .admin__field-control,
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_days_to"] .admin__field-control {
+	width: 100%;
+	margin-left: 0;
+}
+
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_date_to"],
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_date_to"] {
+    width: 180px;
+    position: absolute;
+    top: 77px;
+    left: calc( (100%) * .25 - 30px );
+    margin-left: 180px;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_date_to"] {
+    bottom: 30px;
+    top: auto;
+}
+body[class^='catalog-product-'] .admin__field[data-index="estimated_delivery_date_to"] .admin__field-control,
+body[class^='catalog-product-'] .admin__field[data-index="estimated_shipping_date_to"] .admin__field-control {
+	width: 100%;
+}

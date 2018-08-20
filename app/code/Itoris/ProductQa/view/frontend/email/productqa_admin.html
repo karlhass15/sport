@@ -1,0 +1,25 @@
+<!--@subject {{trans "%subject_email" subject_email=$question_or_answer_text}} @-->
+<!--@vars {
+"var store_view_name":"Store View name",
+"var question_or_answer":"Question Or Answer",
+"var user_type":"User Type",
+"var nickname":"Nickname",
+"var product_name":"Product",
+"var product_url":"ProductUrl",
+"var question_or_answer_details":"Question Or Answer Details",
+"var question_details_backend_url":"Question  Details Backend Url"
+} @-->
+{{template config_path="design/email/header_template"}}
+<p>Dear admin,</p>
+<p>&nbsp;</p>
+<p>New {{var question_or_answer}}  received for moderation. Details:</p>
+<p><strong>Store</strong>: {{var store_view_name}}</p>
+<p><strong>User Type</strong>: {{var user_type}}</p>
+<p><strong>Nickname: </strong>{{var nickname}}</p>
+<p><strong>Product</strong>:  {{var product_url|raw}}</p>
+<p><strong>{{var question_or_answer}}: </strong>{{var question_or_answer_details|raw}}</p>
+<p>&nbsp;</p>
+<p>The {{trans "%questionOrAnswer" questionOrAnswer=$question_or_answer}} details are available in the backend following <b>CATALOG -&gt; Product Q/A -&gt; All Questions -&gt; ID: {{var question_id}}</b> .</p>
+<p>&nbsp;</p>
+<p>Do not reply on this email as it has been generated automatically.</p>
+{{template config_path="design/email/footer_template"}}

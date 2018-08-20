@@ -1,0 +1,59 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php $i=0 ?>
+<?php /** @var $block \Itoris\ProductQa\Block\Form\Answer */ ?>
+<?php $answers = $block->getAnswers() ?>
+<?php $settings = $block->getDataHelper()->getSettings($block->getDataHelper()->getStoreManager()->getStore()->getId()) ?>
+    <div class="ie_height_bug"></div>
+    <div class="answers_ajax_smooth_back">
+    <div class="answers_ajax_smooth">
+<?php if (!empty($answers)): ?>
+    <div class="ie_height_bug_space"></div>
+    <?php foreach ($answers as $answer): ?>
+        <div class="answer">
+            <div class="answer_text">
+                <!--div class="text_blue qa"><?php echo __('A') ?>:</div-->
+                <div class="text_black qa_text"><?php echo $this->getDataHelper()->prepareHtmlText($answer['content']) ?></div><br/>
+            </div>
+            <div class="a_info_block">
+                <div class="a_info">
+                    <div class="info">
+                        <span class="red"><?php echo __('by') .' ' . htmlspecialchars($answer['nickname']) ?></span>
+                        <div class="div-icon-aswer-div">
+                            <span class="gray"><?php echo $block->getDataHelper()->getDateStr($answer['date']) ?></span>
+                           <span id="itoris-answer-span-good-<?php echo (int)$answer['id'] ?>"><?php echo $answer['good'] ?></span> <div class="icon_good" data-answer-id="<?php echo (int)$answer['id'] ?>"  title="<?php echo htmlspecialchars(__('Helpful')) ?>"></div>
+                            <span id="itoris-answer-span-bad-<?php echo (int)$answer['id'] ?>"><?php echo $answer['bad'] ?></span>  <div class="icon_bad" data-answer-id="<?php echo (int)$answer['id'] ?>"  title="<?php echo htmlspecialchars(__('Not Helpful')) ?>"></div>
+                            <span class="icon_inappr" id="itoris-answer-span-inapr-<?php echo (int)$answer['id'] ?>" data-answer-id="<?php echo (int)$answer['id'] ?>" title="<?php echo htmlspecialchars(__('Report as Inappropriate')) ?>"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <div class="a_spacer"></div>
+    </div>
+    </div>
+<?php endif; ?>

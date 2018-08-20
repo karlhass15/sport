@@ -1,0 +1,17 @@
+<!--@subject {{trans "%subject_email" subject_email=$question_or_answer_text}} @-->
+<!--@vars {
+"var username":"User Name",
+"var product_name":"Product",
+"var reply":"Reply",
+"var question":"Question",
+"var product_page":"Product Page"
+} @-->
+{{template config_path="design/email/header_template"}}
+<p>Dear {{trans "%userName" userName=$username}},</p>
+<p>&nbsp;</p>
+<p>There is a new reply on your question about {{trans "%productName" productName=$product_name}}.</p>
+<p>The Question is {{trans "%questionTpl" questionTpl=$question}}.</p>
+<p>The reply is {{trans "%replyTpl" replyTpl=$reply}} .</p>
+<p>&nbsp;</p>
+<p>The reply can be found at <a href="{{var product_page|raw}}">{{var product_page|raw}}.</a></p>
+{{template config_path="design/email/footer_template"}}

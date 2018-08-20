@@ -1,0 +1,17 @@
+<!--@subject {{trans "Welcome to %store_name" store_name=$store.getFrontendName()}} @-->
+<!--@vars {
+"var username":"User Name",
+"var product_name":"Product",
+"var reply":"Reply",
+"var question":"Question",
+"var product_page":"Product Page"
+} @-->
+{{template config_path="design/email/header_template"}}
+<p>Dear {{trans "%userName" userName=$username}},</p>
+<p>&nbsp;</p>
+<p>There is a new reply on your question about {{trans "%productName" productName=$product_name}}.</p>
+<p>The Question is {{trans "%questionTpl" questionTpl=$question}}.</p>
+<p>The reply is {{trans "%replyTpl" replyTpl=$reply}} .</p>
+<p>&nbsp;</p>
+<p>The reply can be found on {{trans "%productPage" productPage=$product_page}}.</p>
+{{template config_path="design/email/footer_template"}}

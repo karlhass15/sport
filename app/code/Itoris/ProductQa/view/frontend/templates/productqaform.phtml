@@ -1,0 +1,185 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+$questions = $block->getQuestions();
+if (!empty($questions) && is_array($questions)) {
+    $i = 0;
+}
+$countQuestion = sizeof($questions);
+$settings = $block->getSettings();
+/** @var \Itoris\ProductQa\Block\Form\Question $block */
+?>
+<div id="accordion" class="itoris-container-accordion-div" style="display: none; min-height: 50px;">
+    <?php foreach($questions as $question): ?>
+        <section class="itoris-accordion-section ac_hidden" id="item<?php echo htmlspecialchars($question['id']); ?>">
+            <h1 data_accordion_id="item<?php echo htmlspecialchars($question['id']); ?>" class="itoris-accordion-h1">
+                <span class="pointer itoris-pointer-p">&#9654;</span>
+                <div class="question-header">
+                    <!--span class="itoris-question-letter"><?php echo __('Q') ?>: </span-->
+                    <a href="#"><?php echo $question['content']; ?></a>
+                </div>
+                <div class="question-answer-count">
+                    <span class="answers_count"><?php echo $block->getDataHelper()->prepareHtmlText('('.htmlspecialchars($question['answers'])); ?></span> <?php echo __('answers').')' ?>
+                </div>
+                <div class="q_info">
+                    <div class="info">
+                        <span class="red"><?php echo __('by') . ' ' . $question['nickname'] ?></span>
+                        <div class="div-icon-aswer-div">
+                            <span class="gray"><?php echo $block->getDataHelper()->getDateStr($question['date']) ?></span>
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="icon-header-float-rigth">
+                        <span class="span-good-<?php echo (int)$question['id'] ?>"><?php echo $question['good'] ?></span> <span class="icon_good" data-question-id = "<?php echo (int)$question['id'] ?>" title="<?php echo htmlspecialchars(__('Helpful')) ?>"></span>
+                            <span class="span-bad-<?php echo (int)$question['id'] ?>"><?php echo $question['bad'] ?></span> <span  class="icon_bad" data-question-id = "<?php echo (int)$question['id'] ?>"  title="<?php echo htmlspecialchars(__('Not Helpful')) ?>"></span>
+                        <span class="icon_inappr" data-question-id = "<?php echo (int)$question['id'] ?>"  title="<?php echo htmlspecialchars(__('Report as Inappropriate')) ?>"></span>
+                    </div>
+            </h1>
+            <div class="itoris-accordion-div">
+                <div class="q_info_block<?php if ($block->canSubscribeOnQuestion()):?> q_info_block_subscribe<?php if (!$block->isGuest()):?>customer<?php endif; ?><?php endif; ?>">
+                    <div class="button_add_answer" id="itoris-div-button-show-<?php echo (int)$question['id'] ?>">
+                        <button id="answer_itoris_button_qa_<?php echo $question['id'];  ?>" type="button" class="button button_answer_question float_right action primary"  data-question-id = "<?php echo (int)$question['id'] ?>">
+                            <span><span><?php echo __('Answer this Question') ?></span></span>
+                        </button>
+                    </div>
+
+                    <?php if ($block->canSubscribeOnQuestion()):?>
+                        <div class="qa_subscribe_box field-row">
+                            <h4 class="span-header-qa"><?php echo __('Notify me by email when answer received:') ?></h4>
+                            <?php $isSubscribed = $block->isSubscribedToQuestion($question['id']); ?>
+                            <span class="subscribed-status-text" <?php if (!$isSubscribed): ?>style="display: none;"<?php endif; ?>><?php echo __('subscribed') ?></span>
+                            <?php if ($block->isGuest()): ?>
+                                <p style="color: #666666"><?php echo __('Please, enter email') ?></p> <input type="text"  name="email" id="itoris-input-email<?php echo $question['id'] ?>" class="required-entry validate-email"/>
+                            <?php endif; ?>
+                            <button id="itoris-qasubscr<?php echo $question['id'] ?>" class="action primary button subscribe itoris-button-subscribe-q" data-question-id="<?php echo $question['id'] ?>" <?php if ($isSubscribed): ?>style="display: none;"<?php endif; ?>><span><?php echo __('Subscribe') ?></span></button>
+                            <button id="itoris-qaunsubscr<?php echo $question['id'] ?>" class="action primary button unsubscribe itoris-button-unsubscribe-q" data-question-id="<?php echo $question['id'] ?>" <?php if (!$isSubscribed): ?>style="display: none;"<?php endif; ?>><span><?php echo __('Unsubscribe') ?></span></button>
+                        </div>
+                        <hr/>
+                    <?php endif; ?>
+                    <div class="answers_ajax" id="answer-ajax-question-answer_<?php echo $question['id'] ?>">
+                        <?php if (!empty($question['answer'])): ?>
+                            <?php echo $this->getAnswersHtml($question['answer'], 'theme') ?>
+                        <?php else: ?>
+                            <div class="ie_height_bug"></div>
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+                <div class="form_box_answer" id="itoris_qa_add_answer-<?php echo $question['id']; ?>" style="display: none">
+                    <h3 class="form-answer-add-h"><?php echo __('Answer this Question') ?></h3>
+                    <form class="form-answerqa" class="itoris_qa_form_add_answerqa" id="form-itoris-answer-<?php echo $question['id']; ?>">
+                        <input type="hidden" id="itoris_answer_status1" name="status" value="<?php echo $this->getAnswerStatus() ?>"/>
+                        <div class="label">
+                            <span class="span-required-qa">*</span>
+                            <?php echo __('Nickname') ?>:
+                        </div>
+                        <div class="value">
+                            <input type="text" name="nickname_answer" class="input-text required-entry"/>
+                        </div>
+                        <div class="label label-textarea">
+                            <span class="span-required-qa">*</span>
+                            <?php echo __('Your Answer');?>:
+                        </div>
+                        <div class="value">
+
+                            <textarea rows="5" name="answer" data-question-id="<?php echo $question['id']; ?>" class="input-text  itoris_answer_textarea  required-entry required-entry validate-length maximum-length-<?php echo $settings->getAnswerLength() ?>" id="answer_text"></textarea><br/>
+                            <span id="answer_text_length" style="color: red;display:none;"><?php echo __('Maximum answer length is ') . $settings->getAnswerLength()?></span>
+                            <div  id="itoris_div_conter_<?php echo $question['id']; ?>" class="itoris_qa_counter_div_answer">
+                                <div class="itros_qa_count_float"><span  class="symbol-length-question"><?php echo __('Length') ?>: <span class="class-counter-question"> 0 </span> <?php echo __('of') ?> <span class="max-length-answer-textarea"><?php echo $settings->getAnswerLength() ?></span></span></div>
+                            </div>
+                        <?php if (!$block->getIsSubscribed()): ?>
+                            <div class="value">
+                                <input type="hidden" name="question_id" value="<?php echo $question['id'] ?>">
+                                <input type="hidden" id="itoris_answer_status" name="status" value="<?php echo $block->getAnswerStatus() ?>"/>
+                                <input type="checkbox" name="newsletter" data-question-id="<?php echo $question['id'] ?>" class="newsletter itoris-newstler-checkbox"/>
+                                <span><?php echo __('Sign Up for Newsletter')?></span><span class="span-required-qa" id="itoris-qa-span<?php echo (int)$question['id'] ?>" hidden style="margin-right: 1%">*</span>
+                                <?php if (!$block->getCustomerId()): ?>
+                                    <div style="display:none;" id="itoris-newstler-add-<?php echo (int)$question['id'] ?>" class="newsletter-email">
+                                        <p><input type="text" name="newsletter_email" data-validate="{required:true, 'validate-email':true}"   class="value" value="" placeholder="<?php echo __('Please, enter email...') ?>" /></p>
+                                    </div>
+                                <?php endif; ?>
+                            </div><br/>
+                        <?php endif; ?>
+                        <?php
+                        if(!$block->getCustomerId() && $settings->getCaptcha() != \Itoris\ProductQa\Block\ProductQa::NO_CAPTCHA){
+                            echo $block->getCaptcha();
+                        }
+                        ?>
+                        <div class="label"></div>
+                        <div class="value">
+                            <button type="button"  data-id-q-a="<?php echo $question['id']; ?>" class="button button_answer_question action primary">
+                                <span><span><?php echo __('Answer this Question') ?></span></span>
+                            </button>
+                                <button id="answer_itoris_button_qa_<?php echo $question['id'];  ?>" type="button" class="button  float_right action button_hide_form"  data-question-id = "<?php echo (int)$question['id'] ?>">
+                                    <span><span><?php echo __('Cancel') ?></span></span>
+                                </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    <?php endforeach; ?>
+    <?php if ($block->getDataHelper()->getRegistry()->registry('pages') > 1): ?>
+        <ul id="itoris_qa_pages" style="display: none;">
+
+            <?php for ($i = 1; $i <= $block->getDataHelper()->getRegistry()->registry('pages'); $i++): ?>
+                <?php if($block->getDataHelper()->getRegistry()->registry('page')-1!=0 && $i==1): ?>
+                    <li class="page-next" data_page_id="<?php echo (int)$block->getDataHelper()->getRegistry()->registry('page') - 1 ?>;"> <a  onclick="return false;">«</a></li>
+                <?php endif; ?>
+                <li data_page_id="<?php echo $i ?>" class="itoris-pages-number <?php if ($i == $block->getDataHelper()->getRegistry()->registry('page')):?> active<?php endif; ?> ">
+                    <a href="<?php echo $block->preparePageUrl($i) ?>" style="color:inherit;text-decoration: none;" onclick="return false;"><?php echo $i ?></a>
+                </li>
+            <?php endfor; ?>
+            <?php if (($block->getDataHelper()->getRegistry()->registry('page') + 1) <= $block->getDataHelper()->getRegistry()->registry('pages')): ?>
+                <li class="" data_page_id="<?php echo (int)$block->getDataHelper()->getRegistry()->registry('page') + 1 ?>;"> <a onclick="return false;">»</a></li>
+
+            <?php endif; ?>
+        </ul>
+    <?php endif; ?>
+    <?php if($this->isSearchRequest() && $countQuestion<1): ?>
+        <div style="text-align:center; padding-top:5px; margin-bottom: 10px;  min-height: 25px; border: 1px solid grey; border-radius: 5px; background-color: #fff;"><?php echo __('Sorry, nothing found for %1', $this->isSearchRequest()) ?></div>
+    <?php endif;?>
+    <?php if($countQuestion<1 && !$this->isSearchRequest()): ?>
+    <div class="empty-messages-itorisqa" style="text-align:center; padding-top:5px; margin-bottom: 10px;  min-height: 25px; border: 1px solid grey; border-radius: 5px; background-color: #fff;"><?php echo __('Be the first to ask a question about this product') ?></div>
+    <?php endif;?>
+    <div style="margin-top: 20px;" class="itoris-ask-div ask_questions<?php echo $block->getShowQuestionForm() ? ' ask_questions_hide' : '' ?>">
+        <button  class="button show_form <?php echo $block->getShowQuestionForm() ? 'button_hide_form' : 'button_ask_questions' ?> action primary">
+				<span>
+					<span class="question_button_text"><?php echo __('Ask a New Question') ?></span>
+					<span class="hide_button_text"><?php echo __('Hide the Form') ?></span>
+				</span>
+        </button>
+    </div>
+</div>
+<script>
+    window.captchaUrlRefresh = '<?php echo $block->getRefreshUrl(); ?>'
+    require(['itoris_productqa_question'],function(){
+
+    });
+</script>
+
+

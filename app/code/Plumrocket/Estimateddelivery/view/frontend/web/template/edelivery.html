@@ -1,0 +1,16 @@
+<!--Plumrocket_Estimateddelivery-->
+<div class="estimated-hld">
+    <div data-bind="if: estimatedShipping" class="estimated-box  estimated-shipping">
+        <p class="price-margin">
+            <strong class="estimated-title" data-bind="text: estimatedShippingLabel"></strong> <br/>
+            <span class="estimated-price" data-bind="html: estimatedShipping"></span>
+        </p>
+    </div>
+    <div data-bind="if: estimatedDelivery"  class="estimated-box  estimated-delivery">
+        <p class="price-margin">
+            <strong class="estimated-title" data-bind="text: estimatedDeliveryLabel"></strong> <br/>
+            <span  class="estimated-price" data-bind="html: estimatedDelivery"></span>
+        </p>
+    </div>
+</div>
+<!--End-->

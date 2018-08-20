@@ -1,0 +1,154 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+/** @var $block Itoris\ProductQa\Block\ProductQa **/ ?>
+<?php
+$settings = $block->getSettings();
+$assetFile = $block->getObjectManager()->get('Magento\Framework\View\Asset\Repository');
+?>
+<script>
+    var urlQuestionRatingPlus='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/ratingPlus') ?>';
+    canRateUserA = false;
+    <?php if(!($settings->getVisitorPost()==Itoris\ProductQa\Block\ProductQa::VISITOR_POST_Q_A || $settings->getVisitorPost()==Itoris\ProductQa\Block\ProductQa::VISITOR_POST_A) ): ?>
+    <?php if(!$block->getDataHelper()->getSession()->isLoggedIn()): ?>
+    canRateUserA='<?php echo $block->getDataHelper()->getUrl('customer/account/login') ?>';
+    <?php endif; ?>
+    <?php endif; ?>
+    var canPost = false;
+    <?php if(!($settings->getVisitorPost()==Itoris\ProductQa\Block\ProductQa::VISITOR_POST_Q_A ||
+              $settings->getVisitorPost()==Itoris\ProductQa\Block\ProductQa::VISITOR_POST_Q)
+              ): ?>
+    <?php if(!$block->getDataHelper()->getSession()->isLoggedIn()): ?>
+    canPost = '<?php echo $block->getDataHelper()->getUrl('customer/account/login') ?>';
+    <?php endif; ?>
+
+    <?php endif ?>
+    var urlQuestionRatingMinus='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/ratingMinus') ?>';
+    var urlQuestionInappr='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/inappr') ?>';
+    var urlAnswerionRatingPlus='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/answer/ratingPlus') ?>';
+    var urlAnswerRatingMinus='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/answer/ratingMinus') ?>';
+    var urlAnswerInappr='<?php echo $block->getDataHelper()->getUrl('itorisproductQa/answer/inappr') ?>';
+    var urlSubscribedQuestion = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/subscribe') ?>';
+    var urlUnscribeQuestion = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/unsubscribe') ?>';
+    var productIdQ=<?php echo $block->getDataHelper()->getRegistry()->registry('current_product')->getId() ?>;
+    var urlModeQA= '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/mode') ?>';
+    var pageQA=1;
+    var store_id_qa = <?php echo $block->getDataHelper()->getStoreManager()->getStore()->getId(); ?>;
+    var pages=<?php echo $block->getDataHelper()->getRegistry()->registry('pages') ?>;
+    var modeQa = <?php echo  \Itoris\ProductQa\Model\Questions::SORT_RECENT ?>;
+    var perPage = '<?php echo $block->getDataHelper()->getSettings($block->getDataHelper()->getStoreManager()->getStore()->getId())->getQuestionsPerPage(); ?>';
+    var searchQuery='';
+    var urlAddQuestion = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/add') ?>';
+    var urlAddAnswer = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/answer/add') ?>';
+    var canRateController = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/question/canPost') ?>';
+    var canRateControllerA = '<?php echo $block->getDataHelper()->getUrl('itorisproductQa/answer/canPost') ?>';
+</script>
+<div id="productQaContainer">
+    <div class="question-container">
+        <header><h3 class="header-qa"><?php  echo __('Questions & Answers') ?></h3></header>
+        <div id="product-qa-serch">
+            <div class="itoris_qa_text"><?php echo __('Search Q/A') ?></div>
+            <input type=text id="input-qa-search" placeholder="<?php echo  __('Search phrase') ?>">
+            <button  id="itoris_qa_search_go"  class="action"><?php echo __('GO') ?></button>
+            <button  id="itoris_qa_search_reset" ><?php echo __('Reset') ?></button>
+        </div>
+        <div id="itoris_qa_select">
+            <div class="itoris_qa_text"><?php echo __('Sort by')?></div>
+            <select id="itoris_qa_select_menu">
+                <?php foreach ($block->getModeSortValues() as $mode): ?>
+
+                    <option value="<?php echo $mode['value'] ?>"><?php echo $mode['label'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <div class="itoris-expander" ><span><?php echo __('Expand All') ?></span> <span class="ask-button-submit">+</span></div>
+        </div>
+        <div class="container-accordion itoris-container-accordion">
+                <?php echo $block->getQuestionsHtml($block->getQuestions())?>
+        </div>
+            <div class="form_box" id="itoris_qa_add_question" style="display:none">
+            <h3><?php  echo __('Ask a New Question') ?></h3>
+            <form class="form" id="itoris_qa_form_add_question">
+                <input type="hidden" id="itoris_question_status" name="status" value="<?php echo $block->getQuestionStatus() ?>"/>
+                <input type="hidden" name="product_id" value="<?php echo $block->getProductId() ?>"/>
+                <?php if($settings->getQuestionsPerPage()): ?>
+                    <input type="hidden" name="per_page" value="<?php echo $settings->getQuestionsPerPage(); ?>">
+                <?php endif; ?>
+                <input type="hidden" name="store_id" value="<?php echo $block->getStoreId() ?>"/>
+                <div class="label">
+                    <span class="span-required-qa">*</span>
+                    <?php echo __('Nickname')?>:
+                </div>
+
+                    <input type="text" name="nickname_question" class="input-text required-entry" />
+
+                <div class="label">
+                    <span class="span-required-qa">*</span>
+                    <?php echo __('Your Question')?>:
+                </div>
+                    <textarea rows="5" name="question" class="input-text required-entry validate-length maximum-length-<?php echo $settings->getQuestionLength() ?>" id="question_text"></textarea><br/>
+                <div   class="itoris_qa_counter_div_answer">
+                    <div class="itros_qa_count_float"><span  class="symbol-length-question"><?php echo __('Length') ?>:<span style="font-weight: 600" class="class-counter-question-global"> 0 </span> <?php echo __('of') ?> <span class="max-length-answer-textarea"><?php echo $settings->getQuestionLength() ?></span></span></div>
+                </div>
+                    <span id="question_text_length" style="color: red; display:none;"><?php echo __('Maximum question length is ') . $settings->getQuestionLength()?></span>
+                  <div class="notify-itoris-qa"><input type="checkbox" name="notify" class="notify" id="itoris_qa_notify"/>
+                    <?php echo __('Notify me by email when answer received')?><span class="span-required-qa" hidden>*</span></div>
+                    <?php if (!$block->getCustomerId()): ?>
+                        <div style="display:none;" class="notify-email">
+                            <input type="text" name="notify_email" data-validate="{required:true, 'validate-email':true}"  class="value" placeholder="<?php echo __('Please, enter email...') ?>" />
+                        </div>
+                    <?php endif; ?>
+                <?php if (!$block->getIsSubscribed()): ?>
+                    <div class="label">
+                    </div>
+                        <div class="newstler-div-itoris-qa"><input type="checkbox" name="newsletter" class="itoris-newsletter  newsletter" />
+                        <?php echo __('Sign Up for Newsletter')?> <span class="span-required-qa" hidden style="margin-right: 1%">*</span></div>
+                        <?php if (!$block->getCustomerId()): ?>
+                            <div style="display:none;" class="newsletter-email">
+                                <input type="text" name="newsletter_email" class="value" data-validate="{required:true, 'validate-email':true}" placeholder="<?php echo __('Please, enter email...') ?>" />
+                            </div>
+                        <?php endif; ?>
+                <?php endif; ?>
+                <?php
+                if(!$block->getCustomerId() && $settings->getCaptcha() != \Itoris\ProductQa\Block\ProductQa::NO_CAPTCHA){
+                     echo   $block->getLayout()->getBlock('captcha')->toHtml();
+                }
+                ?>
+                <div class="label"></div>
+                <div class="value">
+                    <button type="button" class="button button_add_question action primary">
+                        <span><span><?php echo __('Add Question') ?></span></span>
+                    </button>
+                </div>
+                <div class="button-div-hideform_question">
+                    <button type="button" class="button_ask_questions button_hide_form action">
+                        <span><span><?php echo __('Cancel') ?></span></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+</div>
+    </div>
+    <div class="loading-mask" data-role="loader" style="display: none;"><div class="loader"><img alt="<?php __('Loading...') ?>>" src="<?php echo $assetFile->createAsset('Itoris_ProductQa::img/loader-2.gif',['area'=>'frontend'])->getUrl(); ?>"><p><?php __('Please wait...') ?></p></div></div>
+<div id="question_inappr_popup_product" style="display: none; height: 50px;"></div>
+

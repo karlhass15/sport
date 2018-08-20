@@ -1,0 +1,107 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php $_questions = $block->getQuestions(); ?>
+<?php $_answers = $block->getAnswers(); ?>
+<?php if($_questions->getSize()): ?>
+<h2 class="itoris_customer_qa_h3"><?php echo __('My Questions'); ?></h2>
+<?php endif; ?>
+<?php echo $block->getChildHtml('questions_pager'); ?>
+<?php if($_questions->getSize()): ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('Questions') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col id"><?php /* @escapeNotVerified */ echo __('Posted On') ?></th>
+                <th scope="col" class="col date"><?php /* @escapeNotVerified */ echo __('Product Name') ?></th>
+                <?php /* @noEscape */ echo $block->getChildHtml('extra.column.header');?>
+                <th scope="col" class="col shipping"><?php /* @escapeNotVerified */ echo __('Question') ?></th>
+                <th scope="col" class="col total"><?php /* @escapeNotVerified */ echo __('Status') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $_odd = ''; ?>
+            <?php foreach ($_questions as $_question):
+                $block->prepareProductUrl($_question->getProductId(), $_question->getStoreId());
+                ?>
+                <tr>
+                    <td><span class="nobr"><?php echo $block->formatDate($_question->getCreatedDatetime()) ?></span></td>
+                    <td><?php echo '<a href="'. $block->getProductUrl() .'">'. $_question->getProductName() .'</a>'?></td>
+                    <td><?php echo $_question->getContent() ?></td>
+                    <td><em><?php echo $block->getHtmlStatusQ($_question) ?></em></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getChildHtml('questions_pager'); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php /* @escapeNotVerified */ echo __('You have no questions'); ?></span></div>
+<?php endif ?>
+<?php if($_answers->getSize()): ?>
+<h2 class="itoris_customer_qa_h3"><?php echo __('My Answers'); ?></h2>
+<?php endif; ?>
+<?php echo $block->getChildHtml('answers_pager'); ?>
+
+<?php if($_answers->getSize()): ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('Answer') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col id"><?php /* @escapeNotVerified */ echo __('Posted On') ?></th>
+                <th scope="col" class="col date"><?php /* @escapeNotVerified */ echo __('Product Name') ?></th>
+                <?php /* @noEscape */ echo $block->getChildHtml('extra.column.header');?>
+                <th scope="col" class="col shipping"><?php /* @escapeNotVerified */ echo __('Question') ?></th>
+                <th scope="col" class="col total"><?php /* @escapeNotVerified */ echo __('Status') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $_odd = ''; ?>
+            <?php foreach ($_answers as $_answer):
+                $block->prepareProductUrl($_answer->getProductId(), $_answer->getStoreId());
+                ?>
+                <tr>
+                    <td><span class="nobr"><?php echo $block->formatDate($_answer->getCreatedDatetime()) ?></span></td>
+                    <td><?php echo '<a href="'. $block->getProductUrl() .'">'. $_answer->getProductName() .'</a>' ?></td>
+                    <td><?php echo $_answer->getQuestion() ?></td>
+                    <td><?php echo $_answer->getContent() ?></td>
+                    <td><em><?php echo $block->getHtmlStatusA($_answer) ?></em></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getChildHtml('questions_pager'); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php /* @escapeNotVerified */ echo __('You have no answers'); ?></span></div>
+<?php endif ?>
+<!-- -->

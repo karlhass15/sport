@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <estimateddelivery>
+            <general>
+                <enable>0</enable>
+                <serial></serial>
+                <position>product</position>
+                <date_format>MM/dd/yyyy</date_format>
+            </general>
+            <delivery>
+                <default_days>10</default_days>
+                <default_text_enable>0</default_text_enable>
+                <default_text>Estimated delivery date for this product is not available</default_text>
+                <time_after>00,00</time_after>
+                <weekend>0,6</weekend>
+            </delivery>
+            <shipping>
+                <default_days>10</default_days>
+                <default_text_enable>0</default_text_enable>
+                <default_text>Estimated shipping date for this product is not available</default_text>
+                <time_after>00,00</time_after>
+                <weekend>0,6</weekend>
+            </shipping>
+        </estimateddelivery>
+    </default>
+</config>

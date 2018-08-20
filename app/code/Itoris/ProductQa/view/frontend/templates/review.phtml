@@ -1,0 +1,40 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+$helperData = $this->helper('Itoris\ProductQa\Helper\Data');
+$countQuestion = $helperData->countQuestion();
+$countAnswer = $helperData->countAnswer();
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\AbstractProduct */ ?>
+<?php echo $block->getReviewsSummaryHtml($block->getProduct(), false, true)?>
+<div class="itoris-link-product-vew-div" >
+    <a class="action view itorisis_action_view" href="#"><span class="itoris-question-count"><?php /* @escapeNotVerified */ echo $countQuestion; ?></span>&nbsp;<span><?php /* @escapeNotVerified */ echo($countQuestion==1) ? __('Question') : __('Questions') ?></span>,&nbsp;<span class="itoris-answer-count"><?php /* @escapeNotVerified */ echo $countAnswer; ?></span>&nbsp;<span><?php /* @escapeNotVerified */ echo($countAnswer==1) ? __('Answer') : __('Answers') ?></span></a>
+    &nbsp;<a class="action add itoris-action-add" href="<?php /* @escapeNotVerified */ echo '#' ?>"><?php /* @escapeNotVerified */ echo __('Ask Your Question') ?></a>
+</div>
+<script>
+    var idTabProductQa='#productqa.tab';
+    var countQuestion = <?php echo $countQuestion ?>;
+    var countAnswer = <?php echo $countAnswer ?>;
+</script>
+

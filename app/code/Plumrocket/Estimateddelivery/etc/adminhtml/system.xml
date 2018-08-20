@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="estimateddelivery" translate="label" type="text" sortOrder="2868892" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label><![CDATA[Estimated Delivery Date]]></label>
+            <tab>plumrocket</tab>
+            <resource>Plumrocket_Estimateddelivery::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+
+                <field id="version" type="text" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Plumrocket\Estimateddelivery\Block\Adminhtml\System\Config\Form\Version</frontend_model>
+                </field>
+                <field id="enable" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="serial" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Serial Key</label>
+                    <frontend_model>Plumrocket\Base\Block\Adminhtml\System\Config\Form\Serial</frontend_model>
+                    <hint>Estimateddelivery</hint>
+                </field>
+                <field id="position" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display On</label>
+                    <source_model>Plumrocket\Estimateddelivery\Model\Config\Source\Position</source_model>
+                    <comment><![CDATA[To display dates on Magento Order Confirmation Page - <a href="https://store.plumrocket.com/magento-2-extensions/checkout-success-page-extension-for-magento-2.html" target="_blank">Plumrocket Checkout Success Page Extension</a> must be installed]]></comment>
+                </field>
+                <field id="date_format" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Date Format</label>
+                <comment><![CDATA[<a href="http://wiki.plumrocket.com/wiki/Magento_2_Estimated_Delivery_Date_v2.x_Configuration#Configuring_Estimated_Delivery_Date_Format" target="_blank">Click here</a> for more details on available date formats]]></comment>
+                </field>
+            </group>
+
+            <group id="delivery" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Delivery</label>
+
+                <field id="default_text_enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Default Estimated Delivery Text</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the default text will be displayed for all products without estimated delivery information specified</comment>
+                </field>
+                <field id="default_text" translate="label comment" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default estimated delivery text</label>
+                    <frontend_model>Plumrocket\Base\Block\Adminhtml\System\Config\Form\Editor</frontend_model>
+                    <comment>Will be displayed if neither estimated delivery date nor estimated delivery text for products/categories is provided</comment>
+                    <!-- <depends>
+                        <field id="default_text_enable">1</field>
+                    </depends> -->
+                </field>
+                <field id="time_after_enable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Cut-Off Time</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="time_after" translate="label comment" type="time" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delivery Cut-Off Time</label>
+                    <frontend_model>Plumrocket\Estimateddelivery\Block\Adminhtml\System\Config\Form\Time</frontend_model>
+                    <comment>Exclude order creation date from calculations if order is placed after specified time</comment>
+                    <depends>
+                        <field id="time_after_enable">1</field>
+                    </depends>
+                </field>
+                <field id="holidays" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Holidays</label>
+                    <frontend_model>Plumrocket\Estimateddelivery\Block\Adminhtml\System\Config\Form\DatePeriod</frontend_model>
+                    <backend_model>Plumrocket\Estimateddelivery\Model\Backend\DatePeriod</backend_model>
+                </field>
+                <field id="weekend" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Weekend Days</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Weekdays</source_model>
+                    <comment>Selected days of the week will be excluded from the dynamically generated delivery dates</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+            </group>
+
+            <group id="shipping" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping</label>
+
+                <field id="default_text_enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Default Estimated Shipping Text</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, the default text will be displayed for all products without estimated shipping information specified</comment>
+                </field>
+                <field id="default_text" translate="label comment" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default estimated shipping text</label>
+                    <frontend_model>Plumrocket\Base\Block\Adminhtml\System\Config\Form\Editor</frontend_model>
+                    <comment>Will be displayed if neither estimated shipping date nor estimated shipping text for products/categories is provided</comment>
+                    <!-- <depends>
+                        <field id="default_text_enable">1</field>
+                    </depends> -->
+                </field>
+                <field id="time_after_enable" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Cut-Off Time</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="time_after" translate="label comment" type="time" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Cut-Off Time</label>
+                    <frontend_model>Plumrocket\Estimateddelivery\Block\Adminhtml\System\Config\Form\Time</frontend_model>
+                    <comment>Exclude order creation date from calculations if order is placed after specified time</comment>
+                    <depends>
+                        <field id="time_after_enable">1</field>
+                    </depends>
+                </field>
+                <field id="holidays" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Holidays</label>
+                    <frontend_model>Plumrocket\Estimateddelivery\Block\Adminhtml\System\Config\Form\DatePeriod</frontend_model>
+                    <backend_model>Plumrocket\Estimateddelivery\Model\Backend\DatePeriod</backend_model>
+                </field>
+                <field id="weekend" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Weekend Days</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Weekdays</source_model>
+                    <comment>Selected days of the week will be excluded from the dynamically generated shipping dates</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

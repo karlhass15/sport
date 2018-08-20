@@ -1,0 +1,119 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_M2_PRODUCTQA
+ * @copyright  Copyright (c) 2017 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php $_element = $block->getElement() ?>
+<?php if ($_element->getFieldsetContainerId()): ?>
+<div id="<?php echo $_element->getFieldsetContainerId(); ?>">
+	<?php endif; ?>
+	<?php if ($_element->getLegend()): ?>
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $_element->getLegend() ?></h4>
+			<div class="form-buttons"><?php echo $_element->getHeaderBar() ?></div>
+		</div>
+	<?php endif; ?>
+	<?php if (!$_element->getNoContainer()): ?>
+	<div class="fieldset <?php echo $_element->getClass() ?>" id="<?php echo $_element->getHtmlId() ?>">
+		<?php endif; ?>
+		<div class="hor-scroll">
+			<?php if ($_element->getComment()): ?>
+				<p class="comment"><?php echo $block->escapeHtml($_element->getComment()) ?></p>
+			<?php endif; ?>
+			<?php if ($_element->hasHtmlContent()): ?>
+				<?php echo $_element->getHtmlContent(); ?>
+			<?php else: ?>
+				<table  cellspacing="0" id="itoris-table-label-remove" hidden class="<?php echo $_element->hasTableClass() ? $_element->getTableClass() : 'form-list'?>">
+					<tbody>
+					<?php echo $_element->getChildrenHtml(); ?>
+					<?php if($_element->getId() == 'answers_fieldset'):
+
+						?>
+						<table style="width: 100%">
+							<tr>
+								<td colspan="4"><?php echo $block->getLayout()->getBlock('itoris_grid_answer')->toHtml(); ?></td>
+							</tr>
+							<tr><td colspan="4"><h4 class="icon-head head-edit-form itoris-head-add-answer fieldset-legend"><?php echo __('Add New Answer') ?>:</h4></td></tr>
+							<tr>
+								<th><?php echo __('Status') ?></th>
+								<th><?php echo __('Nickname') ?></th>
+								<th><?php echo __('Answer') . ' (' . __('HTML Tags allowed') . ')' ?></th>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="itoris-answer-add" style="width: 130px;">
+									<select name="answer_status" id="answer_status">
+										<option value="<?php echo \Itoris\ProductQa\Model\Answers::STATUS_PENDING ?>"><?php echo __('Pending') ?></option>
+										<option value="<?php echo \Itoris\ProductQa\Model\Answers::STATUS_APPROVED ?>"><?php echo __('Approved') ?></option>
+										<option value="<?php echo \Itoris\ProductQa\Model\Answers::STATUS_NOT_APPROVED ?>"><?php echo __('Rejected') ?></option>
+									</select>
+								</td>
+								<td class="itoris-answer-add" style="width: 160px;"><input type="text" name="answer_nickname" id="answer_nickname"/></td>
+								<td style="width: 850px;"><textarea rows="4" name="answer_content" id="answer_content" style="width: 98%;"></textarea></td>
+								<td><button type="button" onclick="addAnswer('<?php echo addslashes(__('Both Nickname and Answer are required'))  ?>', '<?php echo $this->helper('Magento\Backend\Helper\Data')->getUrl('itorisproductQa/answer/add'); ?>', '<?php echo $this->helper('Itoris\ProductQa\Helper\Data')->getSession()->getFormKey() ?>');"><span><?php echo __('Add') ?></span></button></td>
+							</tr>
+						</table>
+						<?php
+					endif; ?>
+					</tbody>
+				</table>
+
+			<?php endif; ?>
+		</div>
+		<?php echo $_element->getSubFieldsetHtml() ?>
+		<?php if (!$_element->getNoContainer()): ?>
+	</div>
+<?php endif; ?>
+	<?php if ($_element->getFieldsetContainerId()): ?>
+</div>
+<?php endif; ?>
+<script>
+	require(["prototype"],function(){
+		var htmlLabel=$('itoris-table-label-remove').innerHTML;
+		htmlLabel = ' <table cellspacing="0" class="form-list">'+htmlLabel+'</table>';
+		$('itoris-table-label-remove').remove();
+		$('question_fieldset').insert({before:htmlLabel})
+		window.addAnswer=function(message, url, form_key) {
+			var nickname = $F('answer_nickname');
+			var content = $F('answer_content');
+			if(nickname && content) {
+				new Ajax.Request(url, {
+						method: 'post',
+						parameters: {
+							q_id: $F('id'),
+							status: $F('answer_status'),
+							nickname: nickname,
+							content: content,
+							form_key: form_key
+						},
+						onComplete: function(){
+							window.location.reload();
+						}
+					}
+				);
+			} else {
+				alert(message);
+			}
+		}
+	});
+</script>

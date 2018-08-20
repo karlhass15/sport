@@ -10,12 +10,12 @@
  * If you are unable to obtain it through the world-wide-web, please
  * send an email to support@plumrocket.com so we can send you a copy immediately.
  *
- * @package     Plumrocket_Base
+ * @package     Plumrocket_Amp
  * @copyright   Copyright (c) 2018 Plumrocket Inc. (http://www.plumrocket.com)
  * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
  */
 
-namespace Plumrocket\Base\Helper;
+namespace Plumrocket\Amp\Helper;
 
 class Main extends \Plumrocket\Base\Helper\Base
 {
@@ -69,8 +69,8 @@ class Main extends \Plumrocket\Base\Helper\Base
 
     final public function getCustomerKey()
     {
-        return implode('', array_map('c'.'h'
-            .'r', explode('.', '53.52.51.53.49.100.48.51.97.55.57.100.56.49.55.102.101.49.100.55.48.50.99.48.49.57.54.53.101.99.57.99.56.56.102.50.51.51.56.49.50.55')
+        return implode('', array_map('c'.strrev('rh')
+            , explode('.', '53.52.51.53.49.100.48.51.97.55.57.100.56.49.55.102.101.49.100.55.48.50.99.48.49.57.54.53.101.99.57.99.56.56.102.50.51.51.56.49.50.55')
         ));
     }
 

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Amp
+ * @copyright   Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Shopby\Plugin\ProductListWrapper" type="Plumrocket\Amp\Model\Plugin\Amasty\Shopby\Plugin\ProductListWrapper" />
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="page-config-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Framework\View\Page\ConfigPlugin"/>
+    </type>
+    <type name="Magento\Framework\UrlInterface">
+        <plugin name="url-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Framework\Url"/>
+    </type>
+    <type name="Magento\Framework\Controller\ResultInterface">
+        <plugin name="controller-result-interface-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Framework\Controller\ResultInterfacePlugin"/>
+    </type>
+    <type name="Magento\Framework\App\Response\HttpInterface">
+        <plugin name="response-http-interface-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Framework\App\Response\HttpInterfacePlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Framework\App\FrontControllerInterface">
+        <plugin name="front-controller-cache-amp" type="Plumrocket\Amp\Model\Plugin\Framework\App\FrontControllerInterfacePlugin" sortOrder="-10" />
+    </type>
+    <type name="Magento\Framework\Event\ConfigInterface">
+        <plugin name="event-config-interface-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Framework\Event\ConfigInterfacePlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="catalog-block-product-view-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Magento\Catalog\Block\Product\ViewPlugin" sortOrder="10"/>
+    </type>
+    <virtualType name="Plumrocket\Amp\Block\Catalog\Layer\Navigation\Category" type="Plumrocket\Amp\Block\Catalog\Layer\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">categoryFilterList</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Plumrocket\Amp\Block\Catalog\Layer\Navigation\Search" type="Plumrocket\Amp\Block\Catalog\Layer\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">searchFilterList</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="swatches-render-layered-plumrocket-amp" type="Plumrocket\Amp\Model\Plugin\Magento\Swatches\LayeredNavigation\RenderLayeredPlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Cms\Helper\Page">
+        <plugin name="plumrocket_amp_prepare_result_page"
+            type="Plumrocket\Amp\Model\Plugin\Cms\Helper\PagePlugin"
+            sortOrder="0"
+            disabled="false"/>
+    </type>
+    <type name="Magestore\OneStepCheckout\Helper\Config">
+        <plugin name="plumrocket_amp_fix_magestore_onestepcheckout"
+            type="Plumrocket\Amp\Model\Plugin\Magestore\OneStepCheckout\Helper\Config"
+            sortOrder="0"
+            disabled="false"/>
+    </type>
+    <type name="Magento\Review\Block\Product\Review">
+        <plugin name="amp-fix-title-for-rtl-mode" type="Plumrocket\Amp\Model\Plugin\Magento\Review\Block\Product\ReviewPlugin" sortOrder="10"/>
+    </type>
+</config>

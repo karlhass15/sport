@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ab9d08829bf3427167365abdcf051dc",
-    "content-hash": "175fcf96402a04672111f91338d51a7a",
+    "hash": "41c85ef935f2f0d5d4b310cee17838ae",
+    "content-hash": "853acd2fdf46d59b8c727b0643b682a2",
     "packages": [
         {
             "name": "amasty/base",

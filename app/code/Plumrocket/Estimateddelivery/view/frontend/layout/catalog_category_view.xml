@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Plumrocket_Estimateddelivery::css/estimateddelivery.css" />
+        <css src="Plumrocket_Estimateddelivery::css/estimateddelivery-custom.css" />
+    </head>
+    <body>
+        <referenceContainer name="category.view.container">
+            <block class="Plumrocket\Estimateddelivery\Block\Js" name="estimateddelivery_product" as="estimateddelivery" template="Plumrocket_Estimateddelivery::js.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="edelivery-bind" xsi:type="array">
+                                <item name="component" xsi:type="string">Plumrocket_Estimateddelivery/js/load</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Plumrocket_Estimateddelivery/edelivery</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

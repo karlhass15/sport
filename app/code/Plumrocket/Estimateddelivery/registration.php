@@ -1,3 +1,4 @@
+<?php
 /**
  * Plumrocket Inc.
  *
@@ -9,9 +10,13 @@
  * If you are unable to obtain it through the world-wide-web, please
  * send an email to support@plumrocket.com so we can send you a copy immediately.
  *
- * @package     Plumrocket_Extension
- * @copyright   Copyright (c) 2018 Plumrocket Inc. (http://www.plumrocket.com)
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
  * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
  */
 
-var __prinitparam = 'MzAzMDg1';
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+    'Plumrocket_Estimateddelivery',
+    __DIR__
+);

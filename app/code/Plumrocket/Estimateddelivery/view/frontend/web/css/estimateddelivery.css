@@ -1,0 +1,39 @@
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Estimateddelivery
+ * @copyright   Copyright (c) 2017 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+
+.estimated-hld {clear: both; /*padding: 16px 0;*/}
+.estimated-hld .estimated-js {height:15px;}
+.estimated-hld .estimated-js,
+.estimated-hld-product .estimated-box  {margin-bottom: 10px;}
+.estimated-hld-product .estimated-box p {margin-bottom: 0px;}
+.estimated-hld-category .estimated-box {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.category-view #estimateddelivery{
+    margin-left: 20.83333333%;
+}
+
+.category-view #estimateddelivery br{
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .category-view #estimateddelivery{
+        margin-left: 0;
+    }
+}

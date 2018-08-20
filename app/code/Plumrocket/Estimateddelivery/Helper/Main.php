@@ -10,12 +10,12 @@
  * If you are unable to obtain it through the world-wide-web, please
  * send an email to support@plumrocket.com so we can send you a copy immediately.
  *
- * @package     Plumrocket_Base
+ * @package     Plumrocket_Estimateddelivery
  * @copyright   Copyright (c) 2018 Plumrocket Inc. (http://www.plumrocket.com)
  * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
  */
 
-namespace Plumrocket\Base\Helper;
+namespace Plumrocket\Estimateddelivery\Helper;
 
 class Main extends \Plumrocket\Base\Helper\Base
 {

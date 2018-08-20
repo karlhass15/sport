@@ -210,6 +210,7 @@ return [
     'Magento_WishlistAnalytics' => 1,
     'Magento_Worldpay' => 1,
     'Plumrocket_Base' => 1,
+    'Plumrocket_Amp' => 1,
     'Plumrocket_Estimateddelivery' => 1,
     'Plumrocket_SocialLoginPro' => 1,
     'Shopial_Facebook' => 0,

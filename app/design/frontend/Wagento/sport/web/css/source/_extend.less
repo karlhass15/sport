@@ -78,6 +78,33 @@
             }
         }
     }
+
+    .product.data.items {
+        > .item.title {
+            > .switch{
+                &:after {
+                    content: '\e622';
+                    font-family: 'icons-blank-theme';
+                    font-size: 40px;
+                    position: absolute;
+                    top: 8px;
+                    right: 0;
+                }
+            }
+            &.active {
+                > .switch {
+                    &:after {
+                        content: '\e621';
+                        font-family: 'icons-blank-theme';
+                        font-size: 40px;
+                        position: absolute;
+                        top: 8px;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
 }
 
 //

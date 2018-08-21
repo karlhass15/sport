@@ -30,6 +30,44 @@
                 </block>
             </container>
         </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="guaranteed_nalysis" as="guaranteednalysis" template="product/view/guaranteed_nalysis.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Guaranteed Analysis</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="feeding_guide" as="feedingguide" template="product/view/feeding_guide.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Feeding Guide</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="ingredients" as="ingredients" template="product/view/ingredients.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Ingredients</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="does_not_contains" as="doesnotcontains" template="product/view/does_not_contains.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Does Not Contains</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="compare_tab" as="comparetab" template="product/view/compare_tab.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Compare</argument>
+                </arguments>
+            </block>
+
+            <block class="Magento\Catalog\Block\Product\View" name="calculators" as="calculators" template="product/view/calculators.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Calculators</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="more_tab" as="moretab" template="product/view/more_tab.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">More</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
         <move element="product-rivet-block" destination="page.bottom.container" before="-"/>
 
         <container name="product-image-info" htmlTag="div" htmlClass="image-info" >
@@ -49,5 +87,7 @@
         <referenceBlock name="product.info.sku"  remove="true"/>
         <referenceBlock name="product.info.stock.sku" remove="true"/>
         <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.attributes" remove="true" />
     </body>
 </page>

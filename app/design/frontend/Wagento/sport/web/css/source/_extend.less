@@ -83,7 +83,7 @@
                 &:after {
                     content: '\e622';
                     font-family: 'icons-blank-theme';
-                    font-size: 40px;
+                    font-size: 34px;
                     position: absolute;
                     top: 8px;
                     right: 0;
@@ -94,10 +94,23 @@
                     &:after {
                         content: '\e621';
                         font-family: 'icons-blank-theme';
-                        font-size: 40px;
+                        font-size: 34px;
                         position: absolute;
                         top: 8px;
                         right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .product.info.detailed {
+        .product{
+            &.data{
+                &.items {
+                    #tab-label-comparetab,
+                    #tab-label-calculators,
+                    #tab-label-moretab {
+                        display: block;
                     }
                 }
             }
@@ -113,6 +126,27 @@
     .cms-index-index {
         .page-wrapper {
             padding-top: 151px;
+        }
+    }
+}
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+& when (@media-target = 'mobile'), (@media-target = 'all') {
+    @media only screen and (max-width: (@screen__l - 1)) {
+        .product{
+            &.data{
+                &.items {
+                    #tab-label-comparetab,
+                    #tab-label-calculators,
+                    #tab-label-moretab {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }

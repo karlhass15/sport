@@ -45,7 +45,6 @@
         "fastly/magento2": "^1.2",
         "gene/bluefoot": "^1.0",
         "subscribepro/subscribepro-magento2-ext": "^1.1",
-        "amasty/module-special-promo-pro": "^2.4",
         "loyaltylion/core": "1.0.3"
     },
     "config": {

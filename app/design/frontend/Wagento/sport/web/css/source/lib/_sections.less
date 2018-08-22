@@ -86,7 +86,6 @@
         .lib-css(margin, 0 @_tab-control-margin-right 0 0);
         > .switch {
             .lib-typography(
-                @_font-size: @_tab-control-font-size,
                 @_font-family: @_tab-control-font-family,
                 @_font-weight: @_tab-control-font-weight,
                 @_font-style: @_tab-control-font-style,
@@ -105,6 +104,7 @@
             .lib-css(background, @color-white);
             border: none;
             color: @color-black !important;
+            font-size: 1.8rem;
             .lib-css(height, @_tab-control-height);
             .lib-css(padding, @_tab-control-padding-top @_tab-control-padding-right @_tab-control-padding-bottom @_tab-control-padding-left);
         }
@@ -235,14 +235,12 @@
     > .item.title {
         > .switch {
             .lib-css(background, @color-white);
-            .lib-css(height, @_accordion-control-height);
+            .lib-css(height, 25px);
             .lib-css(padding, @_accordion-control-padding-top @_accordion-control-padding-right @_accordion-control-padding-bottom @_accordion-control-padding-left);
             .lib-typography(
                 @_font-family: @_accordion-control-font-family,
-                @_font-size: @_accordion-control-font-size,
                 @_font-style: @_accordion-control-font-style,
-                @_font-weight: @_accordion-control-font-weight,
-                @_line-height: @_accordion-control-line-height
+                @_font-weight: @_accordion-control-font-weight
             );
             .lib-link(
                 @_link-color: @_accordion-control-color,
@@ -255,8 +253,9 @@
                 @_link-text-decoration-active: @_accordion-control-text-decoration-active
             );
             border: none;
-            text-align: center;
             color: @color-black !important;
+            font-size: 1.6rem;
+            line-height: 25px;
         }
 
         &:not(.disabled) > .switch:focus,

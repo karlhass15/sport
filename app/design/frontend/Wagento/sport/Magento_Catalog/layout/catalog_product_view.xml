@@ -28,6 +28,11 @@
                         <argument name="block_id" xsi:type="string">product_rivet_block</argument>
                     </arguments>
                 </block>
+                <block class="Magento\Cms\Block\Block" name="block-detail-page" after="rivit-works-banner-hp">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block-detail-page</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
         <referenceBlock name="product.info.details">
@@ -79,6 +84,7 @@
         <move element="product-image-info" destination="content" after="product-media-info-block" />
 
         <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="product.info.main" after="page.main.title"/>
         <move element="product.info.overview" destination="product.info.main" after="page.main.title"/>
 
         <referenceBlock name="product.info.mailto" remove="true"/>
@@ -86,7 +92,7 @@
         <referenceBlock name="view.addto.wishlist" remove="true"/>
         <referenceBlock name="product.info.sku"  remove="true"/>
         <referenceBlock name="product.info.stock.sku" remove="true"/>
-        <referenceBlock name="product.info.review" remove="true"/>
+        <!--<referenceBlock name="product.info.review" remove="true"/>-->
         <referenceBlock name="reviews.tab" remove="true" />
         <referenceBlock name="product.attributes" remove="true" />
     </body>

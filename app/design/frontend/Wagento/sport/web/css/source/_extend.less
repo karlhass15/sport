@@ -36,6 +36,35 @@
             }
         }
     }
+
+    .hpBanner {
+        position: relative;
+        text-align: right;
+        img {
+            min-width: 100%;
+        }
+
+        .hpBanner-text {
+            position: absolute;
+            top: 21%;
+            right: 8%;
+            background: #ffffff47;
+            padding: 10px;
+            h1 {
+                margin-bottom: 20px;
+                font-size: 5rem;
+                color: @color-white;
+            }
+            h5 {
+                color: @color-white;
+
+            }
+            a {
+                margin-top: 15px;
+                background: @color-blue-button !important;
+            }
+        }
+    }
 }
 
 //
@@ -103,6 +132,7 @@
             }
         }
     }
+
     .product.info.detailed {
         .product{
             &.data{
@@ -112,6 +142,26 @@
                     #tab-label-moretab {
                         display: block;
                     }
+                }
+            }
+        }
+    }
+
+    .cms-home {
+        .hpBanner {
+            .hpBanner-text {
+                position: inherit;
+                right: 0;
+                left: 0;
+                padding: 0 15px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                background: none;
+                text-align: center;
+                h1,
+                h5 {
+                    color: @color-black;
                 }
             }
         }

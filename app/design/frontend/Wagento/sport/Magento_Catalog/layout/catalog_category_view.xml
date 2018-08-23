@@ -12,6 +12,7 @@
         </referenceContainer>
         <move element="page.main.title" destination="category-image-container" before="-"/>
         <move element="category.image" destination="category-image-container" after="page.main.title"/>
+        <move element="product.info.addtocart.instantPurchase" destination="category.product.addto" after="-"/>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="product_list_toolbar" remove="true"/>
         <referenceBlock name="catalog.leftnav" remove="true" />
@@ -34,6 +35,22 @@
                     <argument name="block_id" xsi:type="string">customizable-block-second</argument>
                 </arguments>
             </block>
+
+            <block name="product.info.addtocart.instantPurchase" class="Magento\InstantPurchase\Block\Button" template="Magento_InstantPurchase::button.phtml" before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="instant-purchase" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_InstantPurchase/js/view/instant-purchase</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Magento_InstantPurchase/instant-purchase</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+
         </referenceContainer>
     </body>
 </page>

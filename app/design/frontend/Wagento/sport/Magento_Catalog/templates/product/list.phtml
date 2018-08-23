@@ -59,6 +59,16 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                     <a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
                         <?= $productImage->toHtml() ?>
                     </a>
+
+                    <div class="series">
+                        <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getSeries(), 'series'); ?>
+                    </div>
+
+                    <div class="short-name">
+                        <span><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getShortName(), 'short_name'); ?></span>
+                        <span><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getData('short_name2'), 'short_name2'); ?></span>
+                    </div>
+
                     <div class="product details product-item-details">
                         <?php
                             $_productNameStripped = $block->stripTags($_product->getName(), null, true);
